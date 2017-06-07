@@ -2,6 +2,8 @@
 
 #define UTIL_H
 
-//ADD METHOD DEFINITIONS HERE
+float to100(float from);
+
+float to127(float from);
 
 #endif
