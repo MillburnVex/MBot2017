@@ -11,6 +11,7 @@
  */
 
 #include "main.h"
+#include "util.h"
 
 /*
  * Runs the user operator control code. This function will be started in its own task with the
