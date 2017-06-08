@@ -41,12 +41,20 @@ float cos(float radians){
   return table[(int)((radians + PI / 2) * RADTOINDEX) & SINMASK];
 }
 
+float tan(float radians){
+  return sin(radians)/cos(radians);
+}
+
 float sindeg(float degrees){
   return sin(degrees * DEGRAD);
 }
 
 float cosdeg(float degrees){
   return cos(degrees * DEGRAD);
+}
+
+float tandeg(float degrees){
+  return sindeg(degrees)/cosdeg(degrees);
 }
 
 float lerp(float p1, float p2, float progress){

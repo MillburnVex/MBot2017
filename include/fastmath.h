@@ -10,9 +10,13 @@ float sin(float radians);
 
 float cos(float radians);
 
+float tan(float radians);
+
 float sindeg(float degrees);
 
 float cosdeg(float degrees);
+
+float tandeg(float degrees);
 
 float lerp(float p1, float p2, float progress);
 
