@@ -4,6 +4,8 @@
 
 #define FASTMATH_H
 
+const float PI = 3.1415927f;
+
 void genSinTable();
 
 float sin(float radians);
@@ -17,6 +19,10 @@ float sindeg(float degrees);
 float cosdeg(float degrees);
 
 float tandeg(float degrees);
+
+float fastatan2(float d1, float d2);
+
+float fasthypot(float x, float y);
 
 float lerp(float p1, float p2, float progress);
 

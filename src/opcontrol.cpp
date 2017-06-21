@@ -11,7 +11,9 @@
  */
 
 #include "main.h"
-#include "util.h"
+#include "bot.h"
+#include "fastmath.h"
+//#include <stdio.h>
 
 /*
  * Runs the user operator control code. This function will be started in its own task with the
@@ -26,12 +28,79 @@
  *
  * Code running in this task can take almost any action, as the VEX Joystick is available and
  * the scheduler is operational. However, proper use of delay() or taskDelayUntil() is highly
- * recommended to give other tasks (including system tasks such as updating LCDs) time to run.
+ * recommended to give other tasks (inc luding system tasks such as updating LCDs) time to run.
  *
  * This task should never exit; it should end with some kind of infinite loop, even if empty.
  */
 void operatorControl() {
+	int i = 0;
 	while (1) {
+		i++;
+		int rotate = joystickGetAnalog(1, 3);
+		int strafe = joystickGetAnalog(1, 4);
+		int power = joystickGetAnalog(1, 1);
+		float r = fasthypot(power,strafe);
+		float angle = fastatan2(strafe,power) - PI / 4;
+
+		// if(r * cos(angle) + rotate > 15){
+		// 	motorSet(6, r * cos(angle) + rotate); //FL
+		// }
+		// else{
+		// 	motorSet(6, 0);
+		// }
+		// if(r * sin(angle) + rotate > 15){
+		// 	motorSet(7, r * sin(angle) + rotate); //BL
+		// }
+		// else{
+		// 	motorSet(7, 0);
+		// }
+		// if(r * cos(angle) - rotate > 15){
+		// 	motorSet(8, r * cos(angle) - rotate); //BR
+		// }
+		// else{
+		// 	motorSet(8, 0);
+		// }
+		// if(r * sin(angle) - rotate > 15){
+		// 	motorSet(9, r * sin(angle) - rotate); //FR
+		// }
+		// else{
+		// 	motorSet(9, 0);
+		// }
+
+
+
+		if(power + strafe + rotate > 15 || power + strafe + rotate < -15){
+			motorSet(6, power + strafe + rotate); //FL
+		}
+		else{
+			motorSet(6, 0);
+		}
+		if(power - strafe + rotate > 15 || power - strafe + rotate < -15){
+			motorSet(7, power - strafe + rotate); //BL
+		}
+		else{
+			motorSet(7, 0);
+		}
+		if(power - strafe - rotate > 15 || power - strafe - rotate < -15){
+			motorSet(8, power - strafe - rotate); //BR
+		}
+		else{
+			motorSet(8, 0);
+		}
+		if(power + strafe - rotate > 15 || power + strafe - rotate < -15){
+			motorSet(9, power + strafe - rotate); //FR
+		}
+		else{
+			motorSet(9, 0);
+		}
+
+
+
+
+
+
+		//cout << i << endl;
+
 		delay(20);
 	}
 }

@@ -57,6 +57,14 @@ float tandeg(float degrees){
   return sindeg(degrees)/cosdeg(degrees);
 }
 
+float fastatan2(float d1, float d2){
+  return atan2(d1,d2);
+}
+
+float fasthypot(float x, float y){
+  return hypot(x,y);
+}
+
 float lerp(float p1, float p2, float progress){
   return p1 + (p2 - p1) * progress;
 }
