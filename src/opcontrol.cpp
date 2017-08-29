@@ -94,13 +94,6 @@ void operatorControl() {
 			motorSet(9, 0);
 		}
 
-
-
-
-
-
-		//cout << i << endl;
-
 		delay(20);
 	}
 }
