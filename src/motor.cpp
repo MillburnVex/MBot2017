@@ -1,9 +1,14 @@
 #include "main.h"
 #include "motor.h"
 
-  Motor::Motor(int loc, bool rev){
+  Motor::Motor(){
+    location = -1;
+  }
+
+  Motor::Motor(int loc, char* mname, bool rev){
     location = loc;
     reversed = rev;
+    name = mname;
   }
 
   Motor::Motor(int loc){

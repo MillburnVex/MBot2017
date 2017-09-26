@@ -33,65 +33,25 @@
  * This task should never exit; it should end with some kind of infinite loop, even if empty.
  */
 void operatorControl() {
-	int i = 0;
+	printf("doyinaisquitecool\n");
 	while (1) {
-		i++;
-		int rotate = joystickGetAnalog(1, 3);
-		int strafe = joystickGetAnalog(1, 4);
-		int power = joystickGetAnalog(1, 1);
-		float r = fasthypot(power,strafe);
-		float angle = fastatan2(strafe,power) - PI / 4;
+		int jx = joystickGetAnalog(1, 3);
+		int jy = joystickGetAnalog(1, 4);
 
-		// if(r * cos(angle) + rotate > 15){
-		// 	motorSet(6, r * cos(angle) + rotate); //FL
-		// }
-		// else{
-		// 	motorSet(6, 0);
-		// }
-		// if(r * sin(angle) + rotate > 15){
-		// 	motorSet(7, r * sin(angle) + rotate); //BL
-		// }
-		// else{
-		// 	motorSet(7, 0);
-		// }
-		// if(r * cos(angle) - rotate > 15){
-		// 	motorSet(8, r * cos(angle) - rotate); //BR
-		// }
-		// else{
-		// 	motorSet(8, 0);
-		// }
-		// if(r * sin(angle) - rotate > 15){
-		// 	motorSet(9, r * sin(angle) - rotate); //FR
-		// }
-		// else{
-		// 	motorSet(9, 0);
-		// }
+		motorSet(2, jx+jy);
+		motorSet(3, jx+jy);
+		motorSet(4, -jx+jy);
+		motorSet(5, -jx+jy);
 
-
-
-		if(power + strafe + rotate > 15 || power + strafe + rotate < -15){
-			motorSet(6, power + strafe + rotate); //FL
-		}
-		else{
+		if(joystickGetDigital(1, 8, JOY_UP)){
+			motorSet(6, 127);
+			motorSet(7, 127);
+		}else if(joystickGetDigital(1, 8, JOY_DOWN)){
+			motorSet(6, -127);
+			motorSet(7, -127);
+		}else{
 			motorSet(6, 0);
-		}
-		if(power - strafe + rotate > 15 || power - strafe + rotate < -15){
-			motorSet(7, power - strafe + rotate); //BL
-		}
-		else{
-			motorSet(7, 0);
-		}
-		if(power - strafe - rotate > 15 || power - strafe - rotate < -15){
-			motorSet(8, power - strafe - rotate); //BR
-		}
-		else{
-			motorSet(8, 0);
-		}
-		if(power + strafe - rotate > 15 || power + strafe - rotate < -15){
-			motorSet(9, power + strafe - rotate); //FR
-		}
-		else{
-			motorSet(9, 0);
+			motorSet(6, 0);
 		}
 
 		delay(20);

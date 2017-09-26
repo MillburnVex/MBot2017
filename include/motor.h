@@ -4,12 +4,15 @@
 #include "main.h"
 
 class Motor{
+public:
   int location;
-  int currentpower = 0;;
+  int currentpower = 0;
+  char* name = "";
   bool reversed = false;
 
-public:
-  Motor(int loc, bool rev);
+  Motor();
+
+  Motor(int loc, char* mname, bool rev);
 
   Motor(int loc);
 

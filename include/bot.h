@@ -6,10 +6,22 @@
 #include "fastmath.h"
 #include "motor.h"
 #include "vectors.h"
-#include <map>
 
 class Bot{
-  std::map<int, Motor> motors;
+public:
+  Motor motors[12];
+  //12 digital
+  //8 analog
+
+  Bot();
+
+  Motor getMotor(char* name);
+
+  Motor getMotor(int loc);
+
+  void addMotor(Motor motor);
 };
+
+Bot getBot();
 
 #endif
