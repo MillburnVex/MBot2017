@@ -33,25 +33,25 @@
  * This task should never exit; it should end with some kind of infinite loop, even if empty.
  */
 void operatorControl() {
-	printf("doyinaisquitecool\n");
+	Bot bot = getBot();
 	while (1) {
 		int jx = joystickGetAnalog(1, 3);
 		int jy = joystickGetAnalog(1, 4);
-
-		motorSet(2, jx+jy);
-		motorSet(3, jx+jy);
-		motorSet(4, -jx+jy);
-		motorSet(5, -jx+jy);
+		motorSet(2, jx-jy);
+		motorSet(3, jx-jy);
+		motorSet(8, -(jx+jy));
+		motorSet(9, jx+jy);
+		//bot.setMotor("rf", jx+jy);
+		//bot.setMotor("rb", jx+jy);
+		//bot.setMotor("lf", jx-jy);
+		//bot.setMotor("lb", jx-jy);
 
 		if(joystickGetDigital(1, 8, JOY_UP)){
-			motorSet(6, 127);
-			motorSet(7, 127);
+			motorSet(5, 127);
 		}else if(joystickGetDigital(1, 8, JOY_DOWN)){
-			motorSet(6, -127);
-			motorSet(7, -127);
+			motorSet(5, -127);
 		}else{
-			motorSet(6, 0);
-			motorSet(6, 0);
+			motorSet(5, 0);
 		}
 
 		delay(20);
