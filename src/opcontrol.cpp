@@ -37,21 +37,40 @@ void operatorControl() {
 	while (1) {
 		int jx = joystickGetAnalog(1, 3);
 		int jy = joystickGetAnalog(1, 4);
-		motorSet(2, jx-jy);
-		motorSet(3, jx-jy);
-		motorSet(8, -(jx+jy));
-		motorSet(9, jx+jy);
+		motorSet(2, -(jx-jy));//right drive front
+		motorSet(3, jx-jy);//right drive back
+		motorSet(8, -(jx+jy));//left drive back
+		motorSet(9, jx+jy);//left drive front
 		//bot.setMotor("rf", jx+jy);
 		//bot.setMotor("rb", jx+jy);
 		//bot.setMotor("lf", jx-jy);
 		//bot.setMotor("lb", jx-jy);
 
 		if(joystickGetDigital(1, 8, JOY_UP)){
-			motorSet(5, 127);
+			motorSet(5, 127);//arm back
 		}else if(joystickGetDigital(1, 8, JOY_DOWN)){
-			motorSet(5, -127);
+			motorSet(5, -127);//arm forward
 		}else{
-			motorSet(5, 0);
+			motorSet(5, 0);//arm stop
+		}
+
+		if(joystickGetDigital(1, 7, JOY_UP)){
+			motorSet(7, 127);//left lift up
+			motorSet(4, 127);//right lift up
+		}else if(joystickGetDigital(1, 7, JOY_DOWN)){
+			motorSet(7, -127);//left lift down
+			motorSet(4, -127);//right lift down
+		}else{
+			motorSet(4, 0);//left lift stop
+			motorSet(7, 0);//right lift stop
+		}
+
+		if(joystickGetDigital(1, 6, JOY_UP)){
+			motorSet(6, 50);//claw open
+		}else if(joystickGetDigital(1, 6, JOY_DOWN)){
+			motorSet(6, -50);//claw close
+		}else{
+			motorSet(6, 0);//claw stop
 		}
 
 		delay(20);
