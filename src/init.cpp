@@ -47,4 +47,12 @@ void initialize() {
   Motor lf(8, "lf", false); bot.addMotor(lf);
   Motor lb(9, "lb", false); bot.addMotor(lb);
   Motor ll(10,"ll", false); bot.addMotor(ll);
+
+  analogCalibrate(1);
+  analogCalibrate(2);
+  analogCalibrate(3);
+  analogCalibrate(4);
+  Gyro gyro = gyroInit(5,196);
+  Bot::sonic = ultrasonicInit(1,2);
+
 }

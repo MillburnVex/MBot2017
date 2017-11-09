@@ -7,8 +7,19 @@
 #include "motor.h"
 #include "vectors.h"
 
+int const llift = 2;
+int const rlift = 9;
+int const arm = 5;
+int const brdrive = 8;
+int const bldrive = 4;
+int const frdrive = 7;
+int const fldrive = 3;
+int const claw = 6;
+int const goallift = 10;
+
 class Bot{
 public:
+  static Ultrasonic sonic;
   Motor motors[12];
   MotorGroup groups[6];
   int lgroup = 0;

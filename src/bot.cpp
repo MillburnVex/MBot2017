@@ -1,5 +1,7 @@
 #include "bot.h";
 
+Ultrasonic Bot::sonic;
+
 Bot::Bot(){
 
 }
