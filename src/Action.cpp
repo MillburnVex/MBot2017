@@ -1,20 +1,24 @@
 #ifndef ACTION
 #define ACTION
+#include "SensorID.h"
 class Action {
   public:
     int goalValue;
     int cancelThreshold;
-    Action(int gV, int cThreshold = 20) {
+    SensorID sensor;
+
+    Action(int gV, SensorID s, int cThreshold = 20) {
       goalValue = gV;
+      sensor = s;
       cancelThreshold = cThreshold;
-    };
+    }
 };
-typedef int ID;
+typedef struct {int ID; SensorID sensorID;} MotorID;
 class MotorAction : public Action {
   public:
-    ID motorID;
-    MotorAction(int gV, ID mID, int cThreshold = 20) : Action(gV, cThreshold) {
+    MotorID motorID;
+    MotorAction(int gV, MotorID mID, int cThreshold = 20) : Action(gV, mID.sensorID, cThreshold) {
       motorID = mID;
-    };
+    }
 };
 #endif
