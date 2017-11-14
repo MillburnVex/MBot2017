@@ -1,6 +1,7 @@
 #include "bot.h";
 
 Ultrasonic Bot::sonic;
+Gyro Bot::gyro;
 
 Bot::Bot(){
 

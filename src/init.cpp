@@ -52,7 +52,7 @@ void initialize() {
   analogCalibrate(2);
   analogCalibrate(3);
   analogCalibrate(4);
-  Gyro gyro = gyroInit(5,196);
+  Bot::gyro = gyroInit(5,215);
   Bot::sonic = ultrasonicInit(1,2);
 
 }

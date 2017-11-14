@@ -16,10 +16,15 @@ int const frdrive = 7;
 int const fldrive = 3;
 int const claw = 6;
 int const goallift = 10;
+int const armpotentiometer = 4;
+int const lliftpotentiometer = 2;
+int const rliftpotentiometer = 1;
+int const gliftpotentiometer = 3;
 
 class Bot{
 public:
   static Ultrasonic sonic;
+  static Gyro gyro;
   Motor motors[12];
   MotorGroup groups[6];
   int lgroup = 0;
