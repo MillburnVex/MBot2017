@@ -1,8 +1,8 @@
-#pragma once
+#ifndef QUICKMATH_H
 
-#ifndef FASTMATH_H
+#define QUICKMATH_H
 
-#define FASTMATH_H
+namespace Math {
 
 const float PI = 3.1415927f;
 
@@ -42,4 +42,5 @@ float to100(float from);
 
 float to127(float from);
 
+}
 #endif

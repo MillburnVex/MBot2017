@@ -1,47 +1,21 @@
 #ifndef MOTOR_H
 #define MOTOR_H
 
-#include "main.h"
-
-class Motor{
+class Motor {
 public:
-  int location = -1;
-  int currentpower = 0;
-  char* name = "";
-  bool reversed = false;
+int location = -1;
+int currentPower;
+char* name = "";
 
-  Motor();
+Motor();
 
-  Motor(int loc, char* mname, bool rev);
+Motor(int _location, char* _name);
 
-  Motor(int loc);
+Motor(int _location);
 
-  void setSpeed(int speed);
+void SetSpeed(int speed);
 
-  void stop();
+void Stop();
 };
 
-class MotorGroup{
-private:
-  char* name;
-  int currentpower;
-  int motorcount;
-  Motor* motors;
-
-public:
-  MotorGroup();
-
-  MotorGroup(Motor usedmotors[], int motoramount);
-
-  bool isUsed();
-
-  int getPower();
-
-  void setPower(int npower);
-
-  char* getName();
-
-  Motor* getMotors();
-};
-
-#endif /* end of include guard: MOTOR_H */
+#endif
