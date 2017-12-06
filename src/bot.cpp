@@ -1,53 +1,39 @@
-#include "Bot.h";
+#ifndef BOT
+#define BOT
 
-Ultrasonic Bot::sonic;
-Gyro Bot::gyro;
+#include "Bot.h"
 
-Bot::Bot(){
-
-}
-
-Motor Bot::getMotor(char* name){
+static Motor* Bot::GetMotor(char* name){
         for(int i = 0; i < 12; i++) {
-                if(strcmp(motors[i].name, name)) {
-                        printf("%s\n", motors[i].name);
-                        printf("%d\n", motors[i].location);
+                if(strcmp(motors[i]->name, name)) {
                         return motors[i];
                 }
         }
+        return nullptr;
 }
 
-Motor Bot::getMotor(int loc){
-        return motors[loc];
+static Motor* Bot::GetMotor(int id){
+        return motors[id];
 }
 
-void Bot::setMotor(char* name, int speed){
-        getMotor(name).setSpeed(speed);
+static void Bot::SetMotor(int id, int speed){
+        GetMotor(id)->SetSpeed(speed);
 }
 
-void Bot::addMotor(Motor motor){
-        motors[motor.location] = motor;
+void Bot::AddMotor(Motor* motor){
+        motors[motor->id] = motor;
 }
 
-MotorGroup Bot::getGroup(char *name){
-        for(int i = 0; i < 6; i++) {
-                if(groups[i].getName() == name) {
-                        return groups[i];
+// Runs an action. If there is a motor that is currently running an action already
+// this will be cancelled
+// TODO should I combine values so we can resolve conflicting commands?
+static void Bot::ExecuteAction(MotorAction& action) {
+        for(MotorAction& a : actionQueue) {
+                if(a.motor == action.motor) {
+                        return;
                 }
         }
+        actionQueue.push_back(action);
 }
 
-void Bot::setGroup(char *name, int speed){
-        getGroup(name).setPower(speed);
-}
-
-void Bot::addGroup(MotorGroup group){
-        groups[lgroup] = group;
-        lgroup++;
-}
-
-Bot bot;
-
-Bot getBot(){
-        return bot;
-}
+#endif

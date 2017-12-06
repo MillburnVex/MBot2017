@@ -3,16 +3,28 @@
 #define BOT_H
 
 #include "API.h"
-#include "Motor.h"
+#include "Motors.h"
+#include "MotorAction.h"
+#include <vector>
 
+// Namespace and static to avoid singletons, versus singletons? I like the namespace better
+// https://stackoverflow.com/questions/5793334/c-static-vs-namespace-vs-singleton
 namespace Bot {
-Ultrasonic sonic;
-Gyro gryo;
-Motor motors[12];
-Motor* GetMotor(char* name);
-Motor* GetMotor(int loc);
-void SetMotor(char* name, int speed);
-void AddMotor(Motor motor);
+// TODO are these necessary to have here? I.E. what function do they serve
+static Ultrasonic sonic;
+static Gyro gryo;
+
+// Array and not vec because memory limits
+// Pointer b/c init as null
+static Motor* motors[12];
+
+// The 'queue' of currently running actions to be evaluated, if necessary
+static std::vector<MotorAction> actionQueue;
+static Motor* GetMotor(char* name);
+static Motor* GetMotor(int id);
+static void SetMotor(int id, int speed);
+static void AddMotor(Motor* motor);
+static void ExecuteAction(MotorAction& action);
 }
 
 /*
