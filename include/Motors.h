@@ -31,6 +31,8 @@ bool operator==(Motor other);
 namespace Motors {
 static Motor DRIVE_TOP_RIGHT(0, SensorID::NONE);
 static Motor DRIVE_TOP_LEFT(1, SensorID::NONE);
+static Motor DRIVE_BOTTOM_RIGHT(2, SensorID::NONE);
+static Motor DRIVE_BOTTOM_LEFT(3, SensorID::NONE);
 }
 
 #endif

@@ -29,7 +29,7 @@
  * so, the robot will await a switch to another mode or disable/enable cycle.
  */
 void autonomous() {
-	
+
 	int start = gyroGet(Bot::gyro);
 	motorSet(arm,100);
 	runDrive(-100,0);
@@ -55,22 +55,22 @@ void autonomous() {
 	motorSet(claw,20);
 	delay(800);
 	runDrive(0,0);
-	
+
 	bool done = false;
 	int autoticks = 0;
-	while(!done){
+	while(!done) {
 		delay(20);
 		int armpot = analogRead(armpotentiometer);
-		if(armpot > 1600){
+		if(armpot > 1600) {
 			motorSet(claw, 20);
 			motorSet(arm, -1.0f * (armpot - 1100));
 		}else{
 			autoticks++;
 			motorSet(arm, -0.1f * (armpot - 1100));
-			if(autoticks > 20){
+			if(autoticks > 20) {
 				motorSet(claw, -40);
 				autoticks++;
-				if (autoticks > 50){
+				if (autoticks > 50) {
 					autoticks = 0;
 					done = true;
 				}

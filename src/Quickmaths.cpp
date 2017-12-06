@@ -32,79 +32,79 @@ const float DEGTOINDEX = SINCOUNT / MAXDEG;
 static int* table;
 
 void Math::genSinTable(){
-        table = new int[SINCOUNT];
-        for(int i = 0; i < SINCOUNT; i++)
-                table[i] = sin((i + 0.5f) / SINCOUNT * MAXRAD);
-        for (int i = 0; i < 360; i += 90)
-                table[(int)(i * DEGTOINDEX) & SINMASK] = sin(i * DEGRAD);
+	table = new int[SINCOUNT];
+	for(int i = 0; i < SINCOUNT; i++)
+		table[i] = sin((i + 0.5f) / SINCOUNT * MAXRAD);
+	for (int i = 0; i < 360; i += 90)
+		table[(int)(i * DEGTOINDEX) & SINMASK] = sin(i * DEGRAD);
 }
 
 float Math::sin(float radians){
-        return table[(int)(radians * RADTOINDEX) & SINMASK];
+	return table[(int)(radians * RADTOINDEX) & SINMASK];
 }
 
 float Math::cos(float radians){
-        return table[(int)((radians + PI / 2) * RADTOINDEX) & SINMASK];
+	return table[(int)((radians + PI / 2) * RADTOINDEX) & SINMASK];
 }
 
 float Math::tan(float radians){
-        return sin(radians)/cos(radians);
+	return sin(radians)/cos(radians);
 }
 
 float Math::sindeg(float degrees){
-        return sin(degrees * DEGRAD);
+	return sin(degrees * DEGRAD);
 }
 
 float Math::cosdeg(float degrees){
-        return cos(degrees * DEGRAD);
+	return cos(degrees * DEGRAD);
 }
 
 float Math::tandeg(float degrees){
-        return sindeg(degrees)/cosdeg(degrees);
+	return sindeg(degrees)/cosdeg(degrees);
 }
 
 float Math::fastatan2(float d1, float d2){
-        return atan2(d1,d2);
+	return atan2(d1,d2);
 }
 
 float Math::fasthypot(float x, float y){
-        return hypot(x,y);
+	return hypot(x,y);
 }
 
 float Math::lerp(float p1, float p2, float progress){
-        return p1 + (p2 - p1) * progress;
+	return p1 + (p2 - p1) * progress;
 }
 
 float Math::lerpangle(float fromrad, float torad, float progress) {
-        float delta = fmod(torad - fromrad + PI2 + PI, PI2) - PI;
-        return fmod(fromrad + delta * progress + PI2, PI2);
+	float delta = fmod(torad - fromrad + PI2 + PI, PI2) - PI;
+	return fmod(fromrad + delta * progress + PI2, PI2);
 }
 
 float Math::lerpangledeg(float fromdeg, float todeg, float progress) {
-        return RADDEG * lerpangle(fromdeg * DEGRAD, todeg * DEGRAD, progress);
+	return RADDEG * lerpangle(fromdeg * DEGRAD, todeg * DEGRAD, progress);
 }
 
 bool Math::fequals(float a, float b){
-        return abs(a - b) <= FLOATERROR;
+	return abs(a - b) <= FLOATERROR;
 }
 
 bool Math::iszero(float a){
-        return abs(a) <= FLOATERROR;
+	return abs(a) <= FLOATERROR;
 }
 
 float Math::log(float a, float value) {
-        return std::log(value) / std::log(a);
+	return std::log(value) / std::log(a);
 }
 
 float Math::log2(float value) {
-        return log(2, value);
+	return log(2, value);
 }
 
 float Math::to100(float from){
-        return (from * 100)/127;
+	return (from * 100)/127;
 }
 
 float Math::to127(float from){
-        return (from * 127)/100;
+	return (from * 127)/100;
 }
 #endif

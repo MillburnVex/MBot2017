@@ -25,6 +25,7 @@ static Motor* GetMotor(int id);
 static void SetMotor(int id, int speed);
 static void AddMotor(Motor* motor);
 static void ExecuteAction(MotorAction& action);
+static void Tick();
 }
 
 /*

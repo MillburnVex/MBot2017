@@ -10,6 +10,10 @@ public:
 // so if the current value is getting smaller and the goal value is negative that's good (or vice versa).
 // Otherwise, we wait <cancelThreshold> update cycles and then cancel it
 int goalValue;
+// The value this had last time it was ran
+int currentValue;
+// The number of ticks without making progress
+int ticksWithoutProgress;
 // The number of ticks this action will wait with no progress before cancelling
 int cancelThreshold;
 // The number of ticks to run this for. -1 means forever
