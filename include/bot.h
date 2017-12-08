@@ -10,10 +10,6 @@
 // Namespace and static to avoid singletons, versus singletons? I like the namespace better
 // https://stackoverflow.com/questions/5793334/c-static-vs-namespace-vs-singleton
 namespace Bot {
-// TODO are these necessary to have here? I.E. what function do they serve
-static Ultrasonic sonic;
-static Gyro gryo;
-
 // Array and not vec because memory limits
 // Pointer b/c init as null
 static Motor* motors[12];

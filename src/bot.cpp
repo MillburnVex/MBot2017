@@ -4,9 +4,6 @@
 #include "Bot.h"
 #include <algorithm>
 
-// The
-static const int PROGRESS_THRESHOLD = 2;
-
 static Motor* Bot::GetMotor(char* name){
 	for(int i = 0; i < 12; i++) {
 		if(strcmp(motors[i]->name, name)) {
@@ -48,18 +45,23 @@ static void Bot::ExecuteAction(MotorAction& action) {
 	actionQueue.push_back(action);
 }
 
+// Pray to the lord above that this works. I've never used a vector iterator in cpp b4
 static void Bot::Tick() {
-	for(MotorAction& a : actionQueue) {
+	std::vector<MotorAction>::iterator it = actionQueue.begin();
+	while(it != actionQueue.end()) {
+		MotorAction& a = (*it);
 		if(a.sensor != SensorID::NONE) {
-			int newValue = Sensors::GetValue(a.sensor);
 			// Progress!
-			if(std::abs(newValue) - std::abs(a.currentValue) > 0) {
-
-				// No progress
+			if(Sensors::HasProgressed(a.sensor, a.currentValue, a.goalValue)) {
+				a.currentTicks++;
 			} else {
-				a.
+				a.ticksWithoutProgress++;
+				if(a.ticksWithoutProgress >= a.cancelThreshold) {
+					it = actionQueue.erase(it);
+				}
 			}
 		}
+		++it;
 	}
 }
 

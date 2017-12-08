@@ -18,13 +18,15 @@ int ticksWithoutProgress;
 int cancelThreshold;
 // The number of ticks to run this for. -1 means forever
 int timeLimit;
+// The current number of ticks this has run for
+int currentTicks;
 // The sensor to update progress against. SensorID::NONE means don't update progress
 SensorID sensor;
 // The motor to run this on
 Motor& motor;
 
-MotorAction(Motor& _motor, int _goalValue, SensorID _sensor, int _timeLimit = -1, int _cancelThreshold = 20);
-MotorAction(Motor& _motor, int _goalValue, int _timeLimit = -1, int _cancelThreshold = 20);
+MotorAction(Motor& _motor, int _goalValue, SensorID _sensor, int _timeLimit = -1, int _cancelThreshold = -1);
+MotorAction(Motor& _motor, int _goalValue, int _timeLimit = -1, int _cancelThreshold = -1);
 };
 
 #endif

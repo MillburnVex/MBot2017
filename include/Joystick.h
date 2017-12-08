@@ -6,7 +6,7 @@ enum JoystickPort {
 };
 
 namespace Joystick {
-int getValue(JoystickPort port) {
+int GetValue(JoystickPort port) {
 	return joystickGetAnalog(1, port);
 }
 }

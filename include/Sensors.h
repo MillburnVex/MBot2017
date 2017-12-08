@@ -1,5 +1,6 @@
 #ifndef SENSORS_H
 #define SENSORS_H
+#include "API.h"
 
 enum SensorID {
 	// Potentiometers
@@ -11,7 +12,9 @@ enum SensorID {
 };
 
 namespace Sensors {
+Ultrasonic sonic;
+Gyro gyro;
 int GetValue(SensorID id);
-bool hasProgressed(SensorID id, int lastValue);
+bool HasProgressed(SensorID id, int lastValue, int goalValue);
 }
 #endif

@@ -1,7 +1,7 @@
-#ifndef QUICKMATH
-#define QUICKMATH
+#ifndef QUICKMATHS
+#define QUICKMATHS
 #include "main.h"
-#include <math.h>
+#include <cmath>
 #include "Quickmaths.h"
 
 //INSERT MATH FUNCTIONS HERE
@@ -37,6 +37,12 @@ void Math::genSinTable(){
 		table[i] = sin((i + 0.5f) / SINCOUNT * MAXRAD);
 	for (int i = 0; i < 360; i += 90)
 		table[(int)(i * DEGTOINDEX) & SINMASK] = sin(i * DEGRAD);
+}
+
+int Math::sign(int num) {
+	if (num < 0) return -1;
+	if (num > 0) return 1;
+	return 0;
 }
 
 float Math::sin(float radians){
@@ -92,12 +98,12 @@ bool Math::iszero(float a){
 	return abs(a) <= FLOATERROR;
 }
 
-float Math::log(float a, float value) {
-	return std::log(value) / std::log(a);
+float Math::logE(float value) {
+	return std::log(value);
 }
 
-float Math::log2(float value) {
-	return log(2, value);
+float Math::log(float base, float value) {
+	return log2(value) / log2(base);
 }
 
 float Math::to100(float from){

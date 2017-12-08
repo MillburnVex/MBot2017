@@ -1,12 +1,14 @@
-#ifndef QUICKMATH_H
+#ifndef QUICKMATHS_H
 
-#define QUICKMATH_H
+#define QUICKMATHS_H
 
 namespace Math {
 
 const float PI = 3.1415927f;
 
 void genSinTable();
+
+int sign(int num);
 
 float sin(float radians);
 
@@ -34,9 +36,9 @@ bool fequals(float a, float b);
 
 bool iszero(float a);
 
-float log(float a, float value);
+float logE(float value);
 
-float log2(float value);
+float log(float base, float value);
 
 float to100(float from);
 

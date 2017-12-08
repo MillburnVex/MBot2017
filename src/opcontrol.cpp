@@ -37,7 +37,9 @@ static const double JOYSTICK_SENSITIVITY = 0.8;
 
 void operatorControl() {
 	while(1) {
-		int vertical = Joystick::getValue(JoystickPort::DRIVE_VERTICAL);
+		int vertical = Joystick::GetValue(JoystickPort::DRIVE_VERTICAL);
+		int rotate = Joystick::GetValue(JoystickPort::DRIVE_ROTATE);
+		printf("%d, %f", vertical, rotate);
 	}
 	return;
 	/*
