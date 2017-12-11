@@ -28,6 +28,7 @@ static void Bot::AddMotor(Motor* motor){
 // Runs an action. If there is a motor that is currently running an action already
 // this will be combined, see below for combination results
 static void Bot::ExecuteAction(MotorAction& action) {
+	MotorAction a = action;
 	for(MotorAction& a : actionQueue) {
 		if(a.motor == action.motor) {
 			// Combine them. Logic is as follows:

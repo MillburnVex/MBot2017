@@ -14,8 +14,9 @@ DriveVertical(int _amount) : CompoundAction() {
 }
 std::vector<MotorAction>& create() {
 	auto actions = std::vector<MotorAction>();
-	actions.push_back(MotorAction())
 }
 };
+// tick, predicate, onFinish, timelimit
+//
 }
 #endif
