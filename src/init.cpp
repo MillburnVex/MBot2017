@@ -11,8 +11,6 @@
  */
 
 #include "main.h"
-#include "util.h"
-#include "bot.h"
 
 /*
  * Runs pre-initialization code. This function will be started in kernel mode one time while the
@@ -39,20 +37,21 @@ void initializeIO() {
  * can be implemented in this task if desired.
  */
 void initialize() {
-	Bot bot = getBot();
-	Motor rf(3, "rf", false); bot.addMotor(rf);
-	Motor rb(4, "rb", false); bot.addMotor(rb);
-	Motor rl(5, "rl", false); bot.addMotor(rl);
+	/*
+	   Bot bot = getBot();
+	   Motor rf(3, "rf", false); bot.addMotor(rf);
+	   Motor rb(4, "rb", false); bot.addMotor(rb);
+	   Motor rl(5, "rl", false); bot.addMotor(rl);
 
-	Motor lf(8, "lf", false); bot.addMotor(lf);
-	Motor lb(9, "lb", false); bot.addMotor(lb);
-	Motor ll(10,"ll", false); bot.addMotor(ll);
+	   Motor lf(8, "lf", false); bot.addMotor(lf);
+	   Motor lb(9, "lb", false); bot.addMotor(lb);
+	   Motor ll(10,"ll", false); bot.addMotor(ll);
 
-	analogCalibrate(1);
-	analogCalibrate(2);
-	analogCalibrate(3);
-	analogCalibrate(4);
-	Bot::gyro = gyroInit(5,215);
-	Bot::sonic = ultrasonicInit(1,2);
-
+	   analogCalibrate(1);
+	   analogCalibrate(2);
+	   analogCalibrate(3);
+	   analogCalibrate(4);
+	   Bot::gyro = gyroInit(5,215);
+	   Bot::sonic = ultrasonicInit(1,2);
+	 */
 }

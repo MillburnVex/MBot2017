@@ -40,6 +40,7 @@ void operatorControl() {
 		int vertical = Joystick::GetValue(JoystickPort::DRIVE_VERTICAL);
 		int rotate = Joystick::GetValue(JoystickPort::DRIVE_ROTATE);
 		printf("%d, %f", vertical, rotate);
+
 	}
 	return;
 	/*

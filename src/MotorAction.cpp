@@ -17,4 +17,12 @@ MotorAction::MotorAction(Motor& _motor, int _goalValue,
 	cancelThreshold = _cancelThreshold;
 }
 
+bool MotorAction::operator==(MotorAction& other) {
+	return this->motor == other.motor && this->currentTicks == other.currentTicks && this->currentValue == other.currentValue;
+}
+
+MotorAction& MotorAction::operator=(MotorAction &other) {
+	this->motor = other.motor;
+	return *this;
+}
 #endif

@@ -27,6 +27,10 @@ Motor& motor;
 
 MotorAction(Motor& _motor, int _goalValue, SensorID _sensor, int _timeLimit = -1, int _cancelThreshold = -1);
 MotorAction(Motor& _motor, int _goalValue, int _timeLimit = -1, int _cancelThreshold = -1);
+
+bool operator==(MotorAction& other);
+
+MotorAction& operator=(MotorAction& other);
 };
 
 #endif

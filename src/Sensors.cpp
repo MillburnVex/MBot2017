@@ -9,18 +9,19 @@
 // TODO create sensor classes and use different thresholds for each class
 const int PROGRESS_THRESHOLD = 2;
 
-int Sensors::GetValue(SensorID id) {
-	// read value logic TODO
+static int Sensors::GetValue(SensorID id) {
+	// read value logic TODO check if its none!
 	if(id == SensorID::GRYO) {
 		return gyroGet(gyro);
-	} else if(id == SensorID::CLAW) {
+	} else if(id == SensorID::SONIC) {
 		return ultrasonicGet(sonic);
 	} else {
 		// potentiometer TODO
 	}
 }
 
-bool Sensors::HasProgressed(SensorID id, int lastValue, int goalValue) {
+// Checks if a sensor has moved towards
+static Sensors::HasProgressed(SensorID id, int lastValue, int goalValue) {
 	int currentValue = Sensors::GetValue(id);
 	int difference = currentValue - lastValue;
 	return (std::abs(difference) > PROGRESS_THRESHOLD && Math::sign(currentValue - lastValue) == Math::sign(goalValue));

@@ -91,11 +91,11 @@ float Math::lerpangledeg(float fromdeg, float todeg, float progress) {
 }
 
 bool Math::fequals(float a, float b){
-	return abs(a - b) <= FLOATERROR;
+	return std::abs(a - b) <= FLOATERROR;
 }
 
 bool Math::iszero(float a){
-	return abs(a) <= FLOATERROR;
+	return std::abs(a) <= FLOATERROR;
 }
 
 float Math::logE(float value) {
