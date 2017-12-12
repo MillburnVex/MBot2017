@@ -27,10 +27,14 @@ static void Bot::AddMotor(Motor* motor){
 
 // Runs an action. If there is a motor that is currently running an action already
 // this will be combined, see below for combination results
-static void Bot::ExecuteAction(MotorAction& action) {
-	MotorAction a = action;
+static void Bot::ExecuteAction(const MotorAction& action, bool over) {
 	for(MotorAction& a : actionQueue) {
 		if(a.motor == action.motor) {
+			if(over) {
+				CancelAction(a);
+				actionQueue.push_back(action);
+				return;
+			}
 			// Combine them. Logic is as follows:
 			// Max the goal value
 			// Min the cancel threshold
@@ -50,19 +54,40 @@ static void Bot::ExecuteAction(MotorAction& action) {
 static void Bot::Tick() {
 	std::vector<MotorAction>::iterator it = actionQueue.begin();
 	while(it != actionQueue.end()) {
+		bool hasRemoved = false;
 		MotorAction& a = (*it);
+		a.currentTicks++;
 		if(a.sensor != SensorID::NONE) {
 			// Progress!
-			if(Sensors::HasProgressed(a.sensor, a.currentValue, a.goalValue)) {
-				a.currentTicks++;
-			} else {
+			if(!Sensors::HasProgressed(a.sensor, a.currentValue, a.goalValue)) {
 				a.ticksWithoutProgress++;
 				if(a.ticksWithoutProgress >= a.cancelThreshold) {
 					it = actionQueue.erase(it);
+					hasRemoved = true;
 				}
 			}
+			a.currentValue = Sensors::GetValue(a.sensor);
 		}
-		++it;
+		if(a.currentTicks >= a.timeLimit) {
+			it = actionQueue.erase(it);
+			hasRemoved = true;
+		}
+		if(!hasRemoved) {
+			++it;
+		} else {
+			hasRemoved = false;
+		}
+	}
+}
+
+static void Bot::CancelAction(const MotorAction& a) {
+	std::vector<MotorAction>::iterator it = actionQueue.begin();
+	while(it != actionQueue.end()) {
+		MotorAction& o = (*it);
+		if(a == o) {
+			actionQueue.erase(it);
+			return;
+		}
 	}
 }
 

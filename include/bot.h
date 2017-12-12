@@ -20,8 +20,9 @@ static Motor* GetMotor(char* name);
 static Motor* GetMotor(int id);
 static void SetMotor(int id, int speed);
 static void AddMotor(Motor* motor);
-static void ExecuteAction(MotorAction& action);
+static void ExecuteAction(const MotorAction& action, bool over = false);
 static void Tick();
+static void CancelAction(const MotorAction& a);
 }
 
 /*

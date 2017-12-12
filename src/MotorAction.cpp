@@ -17,11 +17,11 @@ MotorAction::MotorAction(Motor& _motor, int _goalValue,
 	cancelThreshold = _cancelThreshold;
 }
 
-bool MotorAction::operator==(MotorAction& other) {
+bool MotorAction::operator==(const MotorAction& other) const {
 	return this->motor == other.motor && this->currentTicks == other.currentTicks && this->currentValue == other.currentValue;
 }
 
-MotorAction& MotorAction::operator=(MotorAction &other) {
+MotorAction& MotorAction::operator=(const MotorAction &other) {
 	this->motor = other.motor;
 	return *this;
 }

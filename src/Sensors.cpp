@@ -13,7 +13,7 @@ static int Sensors::GetValue(SensorID id) {
 	// read value logic TODO check if its none!
 	if(id == SensorID::GRYO) {
 		return gyroGet(gyro);
-	} else if(id == SensorID::SONIC) {
+	} else if(id == SensorID::CLAW) {
 		return ultrasonicGet(sonic);
 	} else {
 		// potentiometer TODO
@@ -21,7 +21,7 @@ static int Sensors::GetValue(SensorID id) {
 }
 
 // Checks if a sensor has moved towards
-static Sensors::HasProgressed(SensorID id, int lastValue, int goalValue) {
+static bool Sensors::HasProgressed(SensorID id, int lastValue, int goalValue) {
 	int currentValue = Sensors::GetValue(id);
 	int difference = currentValue - lastValue;
 	return (std::abs(difference) > PROGRESS_THRESHOLD && Math::sign(currentValue - lastValue) == Math::sign(goalValue));

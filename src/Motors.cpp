@@ -2,6 +2,12 @@
 #define MOTORS
 #include "main.h"
 #include "Motors.h"
+
+Motor::Motor(int _id, SensorID _defaultSensorID) {
+	id = _id;
+	defaultSensorID = _defaultSensorID;
+}
+
 void Motor::SetSpeed(int speed){
 	currentPower = speed;
 	motorSet(id, currentPower);
