@@ -1,0 +1,13 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	0	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+COMPOUNDACTION	C:\Users\installer\VexBotM\src\CompoundAction.cpp	/^#define COMPOUNDACTION$/;"	macro	line:2	file:
+CompoundAction	C:\Users\installer\VexBotM\src\CompoundAction.cpp	/^class CompoundAction {$/;"	class	line:5	file:
+Actions	C:\Users\installer\VexBotM\src\CompoundAction.cpp	/^namespace Actions {$/;"	namespace	line:9	file:
+DriveVertical	C:\Users\installer\VexBotM\src\CompoundAction.cpp	/^class DriveVertical : CompoundAction {$/;"	class	line:10	namespace:Actions	file:
+amount	C:\Users\installer\VexBotM\src\CompoundAction.cpp	/^int amount;$/;"	member	line:11	class:Actions::DriveVertical	file:
+DriveVertical	C:\Users\installer\VexBotM\src\CompoundAction.cpp	/^DriveVertical(int _amount) : CompoundAction() {$/;"	function	line:12	class:Actions::DriveVertical	file:	signature:(int _amount)
+create	C:\Users\installer\VexBotM\src\CompoundAction.cpp	/^std::vector<MotorAction>& create() {$/;"	function	line:15	class:Actions::DriveVertical	file:	signature:()

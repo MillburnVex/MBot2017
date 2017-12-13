@@ -3,6 +3,7 @@
 
 #include "Bot.h"
 #include <algorithm>
+#include <string.h>
 
 static Motor* Bot::GetMotor(char* name){
 	for(int i = 0; i < 12; i++) {

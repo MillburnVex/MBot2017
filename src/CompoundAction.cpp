@@ -16,6 +16,5 @@ std::vector<MotorAction>& create() {
 }
 };
 // tick, predicate, onFinish, timelimit
-//
 }
 #endif
