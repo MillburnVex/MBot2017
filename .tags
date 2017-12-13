@@ -1,0 +1,197 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+ACCEL_X	.\include\API.h	57;"	d
+ACCEL_Y	.\include\API.h	61;"	d
+AFLAGS	.\common.mk	/^AFLAGS:=$(MCUAFLAGS)$/;"	m
+API_H_	.\include\API.h	22;"	d
+AR	.\common.mk	/^AR:=$(MCUPREFIX)ar$/;"	m
+ARFLAGS	.\common.mk	/^ARFLAGS:=$(MCUCFLAGS)$/;"	m
+AS	.\common.mk	/^AS:=$(MCUPREFIX)as$/;"	m
+ASMEXT	.\common.mk	/^ASMEXT=s$/;"	m
+AddMotor	.\src\Bot.cpp	/^void Bot::AddMotor(Motor* motor){$/;"	f	class:Bot
+BOARD_NR_ADC_PINS	.\include\API.h	142;"	d
+BOARD_NR_GPIO_PINS	.\include\API.h	152;"	d
+BOT	.\src\Bot.cpp	2;"	d	file:
+BOT_H	.\include\Bot.h	3;"	d
+Bot	.\include\Bot.h	/^namespace Bot {$/;"	n
+CC	.\common.mk	/^CC:=$(MCUPREFIX)gcc$/;"	m
+CCFLAGS	.\common.mk	/^CCFLAGS:=-c -Wall $(MCUCFLAGS) -Os -ffunction-sections -fsigned-char -fomit-frame-pointer -fsingle-precision-constant$/;"	m
+CEXT	.\common.mk	/^CEXT=c$/;"	m
+CFLAGS	.\common.mk	/^CFLAGS:=$(CCFLAGS) -std=gnu99 -Werror=implicit-function-declaration$/;"	m
+CLAW	.\include\Sensors.h	/^        CLAW,$/;"	e	enum:SensorID
+CPPCC	.\common.mk	/^CPPCC:=$(MCUPREFIX)g++$/;"	m
+CPPEXT	.\common.mk	/^CPPEXT=cpp$/;"	m
+CPPFLAGS	.\common.mk	/^CPPFLAGS:=$(CCFLAGS) -std=gnu11 -fno-exceptions -fno-rtti -felide-constructors$/;"	m
+DEGRAD	.\src\Quickmaths.cpp	/^const float DEGRAD = PI \/ 180;$/;"	m	namespace:Math	file:
+DEGTOINDEX	.\src\Quickmaths.cpp	/^const float DEGTOINDEX = SINCOUNT \/ MAXDEG;$/;"	m	namespace:Math	file:
+DEVICE	.\common.mk	/^DEVICE=VexCortex$/;"	m
+E	.\src\Quickmaths.cpp	/^const float E = 2.7182818f;$/;"	m	namespace:Math	file:
+EOF	.\include\API.h	830;"	d
+Encoder	.\include\API.h	/^typedef void * Encoder;$/;"	t
+ExecuteAction	.\src\Bot.cpp	/^static void Bot::ExecuteAction(MotorAction& action) {$/;"	f	class:Bot
+FILE	.\include\API.h	/^typedef int FILE;$/;"	t
+FLOATERROR	.\src\Quickmaths.cpp	/^const float FLOATERROR = 0.0001f;$/;"	m	namespace:Math	file:
+GRYO	.\include\Sensors.h	/^        GRYO$/;"	e	enum:SensorID
+GetMotor	.\src\Bot.cpp	/^static Motor* Bot::GetMotor(char* name){$/;"	f	class:Bot
+GetMotor	.\src\Bot.cpp	/^static Motor* Bot::GetMotor(int id){$/;"	f	class:Bot
+GetValue	.\src\Sensors.c	/^int Sensors::GetValue(SensorID id) {$/;"	f	class:Sensors
+Gyro	.\include\API.h	/^typedef void * Gyro;$/;"	t
+HEXT	.\common.mk	/^HEXT=h$/;"	m
+HIGH	.\include\API.h	158;"	d
+IME_ADDR_MAX	.\include\API.h	459;"	d
+INCLUDE	.\common.mk	/^INCLUDE=-I$(ROOT)\/include -I$(ROOT)\/src$/;"	m
+INPUT	.\include\API.h	173;"	d
+INPUT_ANALOG	.\include\API.h	180;"	d
+INPUT_FLOATING	.\include\API.h	187;"	d
+INTERRUPT_EDGE_BOTH	.\include\API.h	328;"	d
+INTERRUPT_EDGE_FALLING	.\include\API.h	323;"	d
+INTERRUPT_EDGE_RISING	.\include\API.h	319;"	d
+InterruptHandler	.\include\API.h	/^typedef void (*InterruptHandler)(unsigned char pin);$/;"	t
+JOY_DOWN	.\include\API.h	41;"	d
+JOY_LEFT	.\include\API.h	45;"	d
+JOY_RIGHT	.\include\API.h	53;"	d
+JOY_UP	.\include\API.h	49;"	d
+LCD_BTN_CENTER	.\include\API.h	1128;"	d
+LCD_BTN_LEFT	.\include\API.h	1124;"	d
+LCD_BTN_RIGHT	.\include\API.h	1132;"	d
+LDFLAGS	.\common.mk	/^LDFLAGS:=-Wall $(MCUCFLAGS) $(MCULFLAGS) -Wl,--gc-sections$/;"	m
+LIBRARIES	.\common.mk	/^LIBRARIES=$(ROOT)\/firmware\/libpros.a -lgcc -lm$/;"	m
+LIFT_LEFT	.\include\Sensors.h	/^        NONE = -1, LIFT_LEFT, LIFT_RIGHT,$/;"	e	enum:SensorID
+LIFT_RIGHT	.\include\Sensors.h	/^        NONE = -1, LIFT_LEFT, LIFT_RIGHT,$/;"	e	enum:SensorID
+LOW	.\include\API.h	164;"	d
+MAIN_H_	.\include\main.h	26;"	d
+MAKE_COMMAND	.\common.mk	/^MAKE_COMMAND=make$/;"	m
+MAXDEG	.\src\Quickmaths.cpp	/^const float MAXDEG = 360;$/;"	m	namespace:Math	file:
+MAXRAD	.\src\Quickmaths.cpp	/^const float MAXRAD = PI * 2;$/;"	m	namespace:Math	file:
+MCUAFLAGS	.\common.mk	/^MCUAFLAGS=-mthumb -mcpu=cortex-m3 -mlittle-endian$/;"	m
+MCUCFLAGS	.\common.mk	/^MCUCFLAGS=-mthumb -mcpu=cortex-m3 -mlittle-endian$/;"	m
+MCULFLAGS	.\common.mk	/^MCULFLAGS=-nostartfiles -Wl,-static -Bfirmware -Wl,-u,VectorTable -Wl,-T -Xlinker firmware\/cortex.ld$/;"	m
+MCUPREFIX	.\common.mk	/^MCUPREFIX=arm-none-eabi-$/;"	m
+MCUPREPARE	.\common.mk	/^MCUPREPARE=$(OBJCOPY) $(OUT) -O binary $(BINDIR)\/$(OUTBIN)$/;"	m
+MOTOR	.\src\Motor.cpp	2;"	d	file:
+MOTORACTION	.\src\MotorAction.cpp	2;"	d	file:
+MOTORACTION_H	.\include\MotorAction.h	2;"	d
+MOTORSENSOR_H	.\include\Motors.h	2;"	d
+Math	.\include\Quickmaths.h	/^namespace Math {$/;"	n
+Math	.\src\Quickmaths.cpp	/^namespace Math {$/;"	n	file:
+Motor	.\include\Motors.h	/^class Motor {$/;"	c
+MotorAction	.\include\MotorAction.h	/^class MotorAction {$/;"	c
+MotorAction	.\src\MotorAction.cpp	/^MotorAction::MotorAction(int _goalValue, MotorID _motorID, int _cancelThreshold) {$/;"	f	class:MotorAction
+Motors	.\include\Motors.h	/^namespace Motors {$/;"	n
+Mutex	.\include\API.h	/^typedef void * Mutex;$/;"	t
+NANOTOSEC	.\src\Quickmaths.cpp	/^const float NANOTOSEC = 1 \/ 1000000000;$/;"	m	namespace:Math	file:
+NONE	.\include\Sensors.h	/^        NONE = -1, LIFT_LEFT, LIFT_RIGHT,$/;"	e	enum:SensorID
+OBJCOPY	.\common.mk	/^OBJCOPY:=$(MCUPREFIX)objcopy$/;"	m
+OUTBIN	.\common.mk	/^OUTBIN=output.bin$/;"	m
+OUTNAME	.\common.mk	/^OUTNAME=output.elf$/;"	m
+OUTPUT	.\include\API.h	194;"	d
+OUTPUT_OD	.\include\API.h	201;"	d
+PI	.\include\Quickmaths.h	/^const float PI = 3.1415927f;$/;"	m	namespace:Math
+PI2	.\src\Quickmaths.cpp	/^const float PI2 = PI * 2;$/;"	m	namespace:Math	file:
+PIHALF	.\src\Quickmaths.cpp	/^const float PIHALF = PI \/ 2;$/;"	m	namespace:Math	file:
+QUICKMATH	.\src\Quickmaths.cpp	2;"	d	file:
+QUICKMATH_H	.\include\Quickmaths.h	3;"	d
+Quaternionf	.\include\vectors.h	/^struct Quaternionf {$/;"	s
+RADDEG	.\src\Quickmaths.cpp	/^const float RADDEG = 180 \/ PI;$/;"	m	namespace:Math	file:
+RADTOINDEX	.\src\Quickmaths.cpp	/^const float RADTOINDEX = SINCOUNT \/ MAXRAD;$/;"	m	namespace:Math	file:
+SEEK_CUR	.\include\API.h	845;"	d
+SEEK_END	.\include\API.h	852;"	d
+SEEK_SET	.\include\API.h	838;"	d
+SENSORS	.\src\Sensors.c	2;"	d	file:
+SENSORS_H	.\include\Sensors.h	2;"	d
+SERIAL_8N1	.\include\API.h	777;"	d
+SERIAL_DATABITS_8	.\include\API.h	749;"	d
+SERIAL_DATABITS_9	.\include\API.h	753;"	d
+SERIAL_PARITY_EVEN	.\include\API.h	769;"	d
+SERIAL_PARITY_NONE	.\include\API.h	765;"	d
+SERIAL_PARITY_ODD	.\include\API.h	773;"	d
+SERIAL_STOPBITS_1	.\include\API.h	757;"	d
+SERIAL_STOPBITS_2	.\include\API.h	761;"	d
+SINBITS	.\src\Quickmaths.cpp	/^const int8_t SINBITS = 12;$/;"	m	namespace:Math	file:
+SINCOUNT	.\src\Quickmaths.cpp	/^const int16_t SINCOUNT = SINMASK + 1;$/;"	m	namespace:Math	file:
+SINMASK	.\src\Quickmaths.cpp	/^const int16_t SINMASK = ~(-1 << SINBITS);$/;"	m	namespace:Math	file:
+SIZEFLAGS	.\common.mk	/^SIZEFLAGS=$/;"	m
+Semaphore	.\include\API.h	/^typedef void * Semaphore;$/;"	t
+SensorID	.\include\Sensors.h	/^enum SensorID {$/;"	g
+Sensors	.\include\Sensors.h	/^namespace Sensors {$/;"	n
+SetMotor	.\src\Bot.cpp	/^static void Bot::SetMotor(int id, int speed){$/;"	f	class:Bot
+SetSpeed	.\src\Motor.cpp	/^void Motor::SetSpeed(int speed){$/;"	f	class:Motor
+Stop	.\src\Motor.cpp	/^void Motor::Stop(){$/;"	f	class:Motor
+TASK_DEAD	.\include\API.h	1259;"	d
+TASK_DEFAULT_STACK_SIZE	.\include\API.h	1246;"	d
+TASK_MAX	.\include\API.h	1216;"	d
+TASK_MAX_PRIORITIES	.\include\API.h	1222;"	d
+TASK_MINIMAL_STACK_SIZE	.\include\API.h	1254;"	d
+TASK_PRIORITY_DEFAULT	.\include\API.h	1233;"	d
+TASK_PRIORITY_HIGHEST	.\include\API.h	1238;"	d
+TASK_PRIORITY_LOWEST	.\include\API.h	1227;"	d
+TASK_RUNNABLE	.\include\API.h	1268;"	d
+TASK_RUNNING	.\include\API.h	1263;"	d
+TASK_SLEEPING	.\include\API.h	1273;"	d
+TASK_SUSPENDED	.\include\API.h	1277;"	d
+TaskCode	.\include\API.h	/^typedef void (*TaskCode)(void *);$/;"	t
+TaskHandle	.\include\API.h	/^typedef void * TaskHandle;$/;"	t
+UPLOAD	.\common.mk	/^UPLOAD=@java -jar firmware\/uniflash.jar vex $(BINDIR)\/$(OUTBIN)$/;"	m
+Ultrasonic	.\include\API.h	/^typedef void * Ultrasonic;$/;"	t
+VECTORS_H	.\include\vectors.h	2;"	d
+Vector2f	.\include\vectors.h	/^struct Vector2f {$/;"	s
+Vector3f	.\include\vectors.h	/^struct Vector3f {$/;"	s
+Vector4f	.\include\vectors.h	/^struct Vector4f {$/;"	s
+actionQueue	.\include\Bot.h	/^static std::vector<MotorAction> actionQueue;$/;"	m	namespace:Bot
+autonomous	.\src\auto.cpp	/^void autonomous() {$/;"	f
+cancelThreshold	.\include\MotorAction.h	/^int cancelThreshold;$/;"	m	class:MotorAction
+cos	.\src\Quickmaths.cpp	/^float Math::cos(float radians){$/;"	f	class:Math
+cosdeg	.\src\Quickmaths.cpp	/^float Math::cosdeg(float degrees){$/;"	f	class:Math
+currentPower	.\include\Motors.h	/^int currentPower;$/;"	m	class:Motor
+defaultSensorID	.\include\Motors.h	/^SensorID defaultSensorID;$/;"	m	class:Motor
+fastatan2	.\src\Quickmaths.cpp	/^float Math::fastatan2(float d1, float d2){$/;"	f	class:Math
+fasthypot	.\src\Quickmaths.cpp	/^float Math::fasthypot(float x, float y){$/;"	f	class:Math
+fequals	.\src\Quickmaths.cpp	/^bool Math::fequals(float a, float b){$/;"	f	class:Math
+genSinTable	.\src\Quickmaths.cpp	/^void Math::genSinTable(){$/;"	f	class:Math
+goalValue	.\include\MotorAction.h	/^int goalValue;$/;"	m	class:MotorAction
+gryo	.\include\Bot.h	/^static Gyro gryo;$/;"	m	namespace:Bot
+id	.\include\Motors.h	/^int id;$/;"	m	class:Motor
+initialize	.\src\init.cpp	/^void initialize() {$/;"	f
+initializeIO	.\src\init.cpp	/^void initializeIO() {$/;"	f
+iszero	.\src\Quickmaths.cpp	/^bool Math::iszero(float a){$/;"	f	class:Math
+lerp	.\src\Quickmaths.cpp	/^float Math::lerp(float p1, float p2, float progress){$/;"	f	class:Math
+lerpangle	.\src\Quickmaths.cpp	/^float Math::lerpangle(float fromrad, float torad, float progress) {$/;"	f	class:Math
+lerpangledeg	.\src\Quickmaths.cpp	/^float Math::lerpangledeg(float fromdeg, float todeg, float progress) {$/;"	f	class:Math
+log	.\src\Quickmaths.cpp	/^float Math::log(float a, float value) {$/;"	f	class:Math
+log2	.\src\Quickmaths.cpp	/^float Math::log2(float value) {$/;"	f	class:Math
+motor	.\include\MotorAction.h	/^Motor& motor;$/;"	m	class:MotorAction
+motors	.\include\Bot.h	/^static Motor* motors[12];$/;"	m	namespace:Bot
+name	.\include\Motors.h	/^char* name = "";$/;"	m	class:Motor
+operator ==	.\src\Motor.cpp	/^bool Motor::operator==(Motor other) {$/;"	f	class:Motor
+operatorControl	.\src\opcontrol.cpp	/^void operatorControl() {$/;"	f
+sensor	.\include\MotorAction.h	/^SensorID sensor;$/;"	m	class:MotorAction
+sin	.\src\Quickmaths.cpp	/^float Math::sin(float radians){$/;"	f	class:Math
+sindeg	.\src\Quickmaths.cpp	/^float Math::sindeg(float degrees){$/;"	f	class:Math
+sonic	.\include\Bot.h	/^static Ultrasonic sonic;$/;"	m	namespace:Bot
+stdin	.\include\API.h	816;"	d
+stdout	.\include\API.h	812;"	d
+table	.\src\Quickmaths.cpp	/^static int* table;$/;"	v	file:
+tan	.\src\Quickmaths.cpp	/^float Math::tan(float radians){$/;"	f	class:Math
+tandeg	.\src\Quickmaths.cpp	/^float Math::tandeg(float degrees){$/;"	f	class:Math
+timeLimit	.\include\MotorAction.h	/^int timeLimit;$/;"	m	class:MotorAction
+to100	.\src\Quickmaths.cpp	/^float Math::to100(float from){$/;"	f	class:Math
+to127	.\src\Quickmaths.cpp	/^float Math::to127(float from){$/;"	f	class:Math
+uart1	.\include\API.h	820;"	d
+uart2	.\include\API.h	824;"	d
+w	.\include\vectors.h	/^        float w = 0;$/;"	m	struct:Vector4f
+w	.\include\vectors.h	/^        float w = 1;$/;"	m	struct:Quaternionf
+x	.\include\vectors.h	/^        float x = 0;$/;"	m	struct:Quaternionf
+x	.\include\vectors.h	/^        float x = 0;$/;"	m	struct:Vector2f
+x	.\include\vectors.h	/^        float x = 0;$/;"	m	struct:Vector3f
+x	.\include\vectors.h	/^        float x = 0;$/;"	m	struct:Vector4f
+y	.\include\vectors.h	/^        float y = 0;$/;"	m	struct:Quaternionf
+y	.\include\vectors.h	/^        float y = 0;$/;"	m	struct:Vector2f
+y	.\include\vectors.h	/^        float y = 0;$/;"	m	struct:Vector3f
+y	.\include\vectors.h	/^        float y = 0;$/;"	m	struct:Vector4f
+z	.\include\vectors.h	/^        float z = 0;$/;"	m	struct:Quaternionf
+z	.\include\vectors.h	/^        float z = 0;$/;"	m	struct:Vector3f
+z	.\include\vectors.h	/^        float z = 0;$/;"	m	struct:Vector4f

@@ -9,10 +9,7 @@
  * PROS contains FreeRTOS (http://www.freertos.org) whose source code may be
  * obtained from http://sourceforge.net/projects/freertos/files/ or on request.
  */
-
-#include "main.h"
-#include "util.h"
-#include "bot.h"
+ #include "main.h"
 
 /*
  * Runs the user autonomous code. This function will be started in its own task with the default
@@ -29,57 +26,57 @@
  * so, the robot will await a switch to another mode or disable/enable cycle.
  */
 void autonomous() {
-	
-	int start = gyroGet(Bot::gyro);
-	motorSet(arm,100);
-	runDrive(-100,0);
-	delay(300);
+	/*
+	       int start = gyroGet(Bot::gyro);
+	       motorSet(arm,100);
+	       runDrive(-100,0);
+	       delay(300);
 
-	runDrive(0,0);
-	motorSet(claw, 20);
-	delay(1500);
+	       runDrive(0,0);
+	       motorSet(claw, 20);
+	       delay(1500);
 
-	motorSet(claw, -40);
-	delay(800);
+	       motorSet(claw, -40);
+	       delay(800);
 
-	runDrive(90,0);
-	delay(300);
+	       runDrive(90,0);
+	       delay(300);
 
-	runDrive(0,0);
-	motorSet(claw,30);
-	delay(300);
+	       runDrive(0,0);
+	       motorSet(claw,30);
+	       delay(300);
 
-	motorSet(arm, -25);
+	       motorSet(arm, -25);
 
-	runDrive(-60,0);
-	motorSet(claw,20);
-	delay(800);
-	runDrive(0,0);
-	
-	bool done = false;
-	int autoticks = 0;
-	while(!done){
-		delay(20);
-		int armpot = analogRead(armpotentiometer);
-		if(armpot > 1600){
-			motorSet(claw, 20);
-			motorSet(arm, -1.0f * (armpot - 1100));
-		}else{
-			autoticks++;
-			motorSet(arm, -0.1f * (armpot - 1100));
-			if(autoticks > 20){
-				motorSet(claw, -40);
-				autoticks++;
-				if (autoticks > 50){
-					autoticks = 0;
-					done = true;
-				}
-			}
-		}
-	}
-	motorSet(arm, 100);
-	delay(200);
+	       runDrive(-60,0);
+	       motorSet(claw,20);
+	       delay(800);
+	       runDrive(0,0);
 
-	motorSet(claw, 50);
+	       bool done = false;
+	       int autoticks = 0;
+	       while(!done) {
+	               delay(20);
+	               int armpot = analogRead(armpotentiometer);
+	               if(armpot > 1600) {
+	                       motorSet(claw, 20);
+	                       motorSet(arm, -1.0f * (armpot - 1100));
+	               }else{
+	                       autoticks++;
+	                       motorSet(arm, -0.1f * (armpot - 1100));
+	                       if(autoticks > 20) {
+	                               motorSet(claw, -40);
+	                               autoticks++;
+	                               if (autoticks > 50) {
+	                                       autoticks = 0;
+	                                       done = true;
+	                               }
+	                       }
+	               }
+	       }
+	       motorSet(arm, 100);
+	       delay(200);
 
+	       motorSet(claw, 50);
+	 */
 }
