@@ -3,6 +3,7 @@
 
 #include "Quickmaths.h"
 #include "MotorActionQueue.h"
+#include "Sensors.h"
 
 // Returns the index. Save this if you want to remove it later.
 // When I have time I'll add a remove feature that takes in

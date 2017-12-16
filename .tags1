@@ -4,15 +4,12 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
-COMPOUNDACTION	C:\Users\installer\MBot2017\src\CompoundAction.cpp	/^#define COMPOUNDACTION$/;"	macro	line:2	file:
-CompoundAction	C:\Users\installer\MBot2017\src\CompoundAction.cpp	/^class CompoundAction {$/;"	class	line:6	file:
-CompoundActions	C:\Users\installer\MBot2017\src\CompoundAction.cpp	/^namespace CompoundActions {$/;"	namespace	line:10	file:
-DriveVertical	C:\Users\installer\MBot2017\src\CompoundAction.cpp	/^class DriveVertical : CompoundAction {$/;"	class	line:12	namespace:CompoundActions	file:
-speed	C:\Users\installer\MBot2017\src\CompoundAction.cpp	/^int speed;$/;"	member	line:13	class:CompoundActions::DriveVertical	file:
-DriveVertical	C:\Users\installer\MBot2017\src\CompoundAction.cpp	/^DriveVertical(int _speed) {$/;"	function	line:14	class:CompoundActions::DriveVertical	file:	signature:(int _speed)
-Run	C:\Users\installer\MBot2017\src\CompoundAction.cpp	/^void Run() {$/;"	function	line:18	class:CompoundActions::DriveVertical	file:	signature:()
-DriveRotate	C:\Users\installer\MBot2017\src\CompoundAction.cpp	/^class DriveRotate : CompoundAction {$/;"	class	line:29	namespace:CompoundActions	file:
-speed	C:\Users\installer\MBot2017\src\CompoundAction.cpp	/^int speed;$/;"	member	line:30	class:CompoundActions::DriveRotate	file:
-dir	C:\Users\installer\MBot2017\src\CompoundAction.cpp	/^int dir;$/;"	member	line:31	class:CompoundActions::DriveRotate	file:
-DriveRotate	C:\Users\installer\MBot2017\src\CompoundAction.cpp	/^DriveRotate(int _speed, int _dir) {$/;"	function	line:33	class:CompoundActions::DriveRotate	file:	signature:(int _speed, int _dir)
-Run	C:\Users\installer\MBot2017\src\CompoundAction.cpp	/^void Run() {$/;"	function	line:37	class:CompoundActions::DriveRotate	file:	signature:()
+COMPOUND_ACTION	C:\Users\installer\MBot2017\src\CompoundAction.cpp	/^#define COMPOUND_ACTION$/;"	macro	line:2	file:
+DriveLeft	C:\Users\installer\MBot2017\src\CompoundAction.cpp	/^DriveLeft::DriveLeft(int _speed) {$/;"	function	line:9	class:DriveLeft	signature:(int _speed)
+Run	C:\Users\installer\MBot2017\src\CompoundAction.cpp	/^void DriveLeft::Run() {$/;"	function	line:13	class:DriveLeft	signature:()
+DriveRight	C:\Users\installer\MBot2017\src\CompoundAction.cpp	/^DriveRight::DriveRight(int _speed) {$/;"	function	line:20	class:DriveRight	signature:(int _speed)
+Run	C:\Users\installer\MBot2017\src\CompoundAction.cpp	/^void DriveRight::Run() {$/;"	function	line:24	class:DriveRight	signature:()
+DriveRotate	C:\Users\installer\MBot2017\src\CompoundAction.cpp	/^DriveRotate::DriveRotate(int _speed, int _dir){$/;"	function	line:31	class:DriveRotate	signature:(int _speed, int _dir)
+Run	C:\Users\installer\MBot2017\src\CompoundAction.cpp	/^void DriveRotate::Run() {$/;"	function	line:36	class:DriveRotate	signature:()
+DriveVertical	C:\Users\installer\MBot2017\src\CompoundAction.cpp	/^DriveVertical::DriveVertical(int _speed) {$/;"	function	line:46	class:DriveVertical	signature:(int _speed)
+Run	C:\Users\installer\MBot2017\src\CompoundAction.cpp	/^void DriveVertical::Run() {$/;"	function	line:50	class:DriveVertical	signature:()

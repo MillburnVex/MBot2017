@@ -9,7 +9,7 @@
 // TODO create sensor classes and use different thresholds for each class
 const int PROGRESS_THRESHOLD = 2;
 
-static int Sensors::GetValue(SensorID id) {
+int Sensors::GetValue(SensorID id) {
 	// read value logic TODO check if its none!
 	if(id == SensorID::GRYO) {
 		return gyroGet(gyro);
@@ -21,7 +21,7 @@ static int Sensors::GetValue(SensorID id) {
 }
 
 // Checks if a sensor has moved towards
-static bool Sensors::HasProgressed(SensorID id, int lastValue, int goalValue) {
+bool Sensors::HasProgressed(SensorID id, int lastValue, int goalValue) {
 	int currentValue = Sensors::GetValue(id);
 	int difference = currentValue - lastValue;
 	return (Math::Abs(difference) > PROGRESS_THRESHOLD && Math::Sign(currentValue - lastValue) == Math::Sign(goalValue));

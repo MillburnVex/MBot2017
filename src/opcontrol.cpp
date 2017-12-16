@@ -9,9 +9,13 @@
  * PROS contains FreeRTOS (http://www.freertos.org) whose source code may be
  * obtained from http://sourceforge.net/projects/freertos/files/ or on request.
  */
-
+#ifndef OPCONTROL
+#define OPCONTROL
 #include "main.h"
 #include "Joystick.h"
+#include "CompoundAction.h"
+#include "Quickmaths.h"
+#include "Bot.h"
 
 /*
  * Runs the user operator control code. This function will be started in its own task with the
@@ -30,11 +34,24 @@
  *
  * This task should never exit; it should end with some kind of infinite loop, even if empty.
  */
+
+const int MILLIS_PER_TICK = 20;
+
+void Tick() {
+	Bot::Tick();
+}
+
 void operatorControl() {
+	taskRunLoop(Tick, MILLIS_PER_TICK);
 	while (1) {
 		int vertical = Joystick::GetValue(JoystickPort::DRIVE_VERTICAL);
 		int rotate = Joystick::GetValue(JoystickPort::DRIVE_ROTATE);
 		printf("%d vertical", vertical);
 		printf("%d rotation", rotate);
+		if(vertical != 0)
+			DriveVertical(vertical).Run();
+		if(rotate != 0)
+			DriveRotate(Math::Abs(rotate), Math::Sign(rotate)).Run();
 	}
 }
+#endif

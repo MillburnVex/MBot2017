@@ -9,7 +9,8 @@
  * PROS contains FreeRTOS (http://www.freertos.org) whose source code may be
  * obtained from http://sourceforge.net/projects/freertos/files/ or on request.
  */
-
+#ifndef AUTO
+#define AUTO
 #include "main.h"
 
 /*
@@ -28,3 +29,4 @@
  */
 void autonomous() {
 }
+#endif

@@ -9,7 +9,8 @@
  * PROS contains FreeRTOS (http://www.freertos.org) whose source code may be
  * obtained from http://sourceforge.net/projects/freertos/files/ or on request.
  */
-
+#ifndef INIT
+#define INIT
 #include "main.h"
 
 /*
@@ -38,3 +39,4 @@ void initializeIO() {
  */
 void initialize() {
 }
+#endif

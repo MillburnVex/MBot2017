@@ -12,9 +12,9 @@ enum SensorID {
 };
 
 namespace Sensors {
+int GetValue(SensorID id);
+bool HasProgressed(SensorID id, int lastValue, int goalValue);
 static Ultrasonic sonic;
 static Gyro gyro;
-static int GetValue(SensorID id);
-static bool HasProgressed(SensorID id, int lastValue, int goalValue);
 }
 #endif
