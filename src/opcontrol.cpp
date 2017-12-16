@@ -11,6 +11,7 @@
  */
 
 #include "main.h"
+#include "Joystick.h"
 
 /*
  * Runs the user operator control code. This function will be started in its own task with the
@@ -31,6 +32,9 @@
  */
 void operatorControl() {
 	while (1) {
-		delay(20);
+		int vertical = Joystick::GetValue(JoystickPort::DRIVE_VERTICAL);
+		int rotate = Joystick::GetValue(JoystickPort::DRIVE_ROTATE);
+		printf("%d vertical", vertical);
+		printf("%d rotation", rotate);
 	}
 }

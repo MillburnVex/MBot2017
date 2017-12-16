@@ -29,6 +29,7 @@ void Stop();
 bool operator==(Motor other);
 };
 namespace Motors {
+// The IDs should be the port nums
 static Motor DRIVE_TOP_RIGHT(0, SensorID::NONE);
 static Motor DRIVE_TOP_LEFT(1, SensorID::NONE);
 static Motor DRIVE_BOTTOM_RIGHT(2, SensorID::NONE);

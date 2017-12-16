@@ -2,17 +2,19 @@
 #define MOTORACTION
 #include "MotorAction.h"
 
-MotorAction::MotorAction(Motor& _motor, int _goalValue, SensorID _sensor,
+MotorAction::MotorAction(Motor& _motor, int _speed, int _goalValue, SensorID _sensor,
                          int _timeLimit, int _cancelThreshold) :
 	motor(_motor) {
+	speed = _speed;
 	goalValue = _goalValue;
 	sensor = _sensor;
 	cancelThreshold = _cancelThreshold;
 }
 
-MotorAction::MotorAction(Motor& _motor, int _goalValue,
+MotorAction::MotorAction(Motor& _motor, int _speed, int _goalValue,
                          int _timeLimit, int _cancelThreshold) :
 	motor(_motor) {
+	speed = _speed;
 	goalValue = _goalValue;
 	cancelThreshold = _cancelThreshold;
 }

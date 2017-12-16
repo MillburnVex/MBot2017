@@ -24,9 +24,11 @@ int currentTicks;
 SensorID sensor;
 // The motor to run this on
 Motor& motor;
+// How fast to set this to
+int speed;
 
-MotorAction(Motor& _motor, int _goalValue, SensorID _sensor, int _timeLimit = -1, int _cancelThreshold = -1);
-MotorAction(Motor& _motor, int _goalValue, int _timeLimit = -1, int _cancelThreshold = -1);
+MotorAction(Motor& _motor, int _speed, int _goalValue, SensorID _sensor, int _timeLimit = -1, int _cancelThreshold = -1);
+MotorAction(Motor& _motor, int _speed, int _goalValue, int _timeLimit = -1, int _cancelThreshold = -1);
 
 bool operator==(const MotorAction& other) const;
 

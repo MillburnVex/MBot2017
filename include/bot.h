@@ -5,7 +5,7 @@
 #include "API.h"
 #include "Motors.h"
 #include "MotorAction.h"
-#include <vector>
+#include "MotorActionQueue.h"
 
 // Namespace and static to avoid singletons, versus singletons? I like the namespace better
 // https://stackoverflow.com/questions/5793334/c-static-vs-namespace-vs-singleton
@@ -15,14 +15,13 @@ namespace Bot {
 static Motor* motors[12];
 
 // The 'queue' of currently running actions to be evaluated, if necessary
-static std::vector<MotorAction> actionQueue;
-static Motor* GetMotor(char* name);
+static MotorActionQueue actionQueue;
 static Motor* GetMotor(int id);
 static void SetMotor(int id, int speed);
 static void AddMotor(Motor* motor);
-static void ExecuteAction(const MotorAction& action, bool over = false);
+static void ExecuteAction(MotorAction& action, bool over = false);
 static void Tick();
-static void CancelAction(const MotorAction& a);
+static void CancelAction(int index);
 }
 
 /*

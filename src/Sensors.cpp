@@ -24,7 +24,7 @@ static int Sensors::GetValue(SensorID id) {
 static bool Sensors::HasProgressed(SensorID id, int lastValue, int goalValue) {
 	int currentValue = Sensors::GetValue(id);
 	int difference = currentValue - lastValue;
-	return (std::abs(difference) > PROGRESS_THRESHOLD && Math::sign(currentValue - lastValue) == Math::sign(goalValue));
+	return (Math::Abs(difference) > PROGRESS_THRESHOLD && Math::Sign(currentValue - lastValue) == Math::Sign(goalValue));
 }
 
 #endif
