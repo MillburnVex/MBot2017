@@ -31,27 +31,23 @@
  * Code running in this task can take almost any action, as the VEX Joystick is available and
  * the scheduler is operational. However, proper use of delay() or taskDelayUntil() is highly
  * recommended to give other tasks (including system tasks such as updating LCDs) time to run.
- *
  * This task should never exit; it should end with some kind of infinite loop, even if empty.
  */
 
-const int MILLIS_PER_TICK = 20;
+const int MILLIS_PER_TICK = 100;
 
 void Tick() {
 	Bot::Tick();
+	int vertical = Joystick::GetValue(JoystickPort::DRIVE_VERTICAL);
+	int rotate = Joystick::GetValue(JoystickPort::DRIVE_ROTATE);
+	if(vertical != 0)
+		DriveVertical(vertical).Run();
 }
 
 void operatorControl() {
 	taskRunLoop(Tick, MILLIS_PER_TICK);
 	while (1) {
-		int vertical = Joystick::GetValue(JoystickPort::DRIVE_VERTICAL);
-		int rotate = Joystick::GetValue(JoystickPort::DRIVE_ROTATE);
-		printf("%d vertical", vertical);
-		printf("%d rotation", rotate);
-		if(vertical != 0)
-			DriveVertical(vertical).Run();
-		if(rotate != 0)
-			DriveRotate(Math::Abs(rotate), Math::Sign(rotate)).Run();
+		delay(20);
 	}
 }
 #endif

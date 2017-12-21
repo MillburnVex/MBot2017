@@ -12,7 +12,7 @@ namespace Bot {
 
 // Pointer b/c init as null
 static Motor* motors[12];
-
+static int* tickCount;
 // The queue of currently running actions to be evaluated, if necessary
 static MotorActionQueue actionQueue;
 Motor* GetMotor(int id);
@@ -21,6 +21,5 @@ void AddMotor(Motor* motor);
 void ExecuteAction(MotorAction& action, bool over = false);
 void Tick();
 void CancelAction(int index);
-
 }
 #endif

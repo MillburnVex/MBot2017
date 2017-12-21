@@ -21,7 +21,7 @@ void Bot::ExecuteAction(MotorAction& action, bool over) {
 	actionQueue.Add(action, over);
 }
 
-// Pray to the lord above that this works. I've never used a vector iterator in cpp b4
+// Pray to the lord above that this works.
 void Bot::Tick() {
 	actionQueue.Update();
 }

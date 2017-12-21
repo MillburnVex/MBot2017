@@ -10,7 +10,7 @@
 // a MotorAction instead
 int MotorActionQueue::Add(MotorAction& action, bool over) {
 	if(maxIndex == MAX_ACTIONS_IN_QUEUE) {
-		print("Adding too many actions to queue !");
+		print("Adding too many actions to queue!\n");
 		return -1;
 	}
 	// Combine

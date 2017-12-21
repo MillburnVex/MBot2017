@@ -4,12 +4,8 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
-COMPOUND_ACTION	C:\Users\installer\MBot2017\src\CompoundAction.cpp	/^#define COMPOUND_ACTION$/;"	macro	line:2	file:
-DriveLeft	C:\Users\installer\MBot2017\src\CompoundAction.cpp	/^DriveLeft::DriveLeft(int _speed) {$/;"	function	line:9	class:DriveLeft	signature:(int _speed)
-Run	C:\Users\installer\MBot2017\src\CompoundAction.cpp	/^void DriveLeft::Run() {$/;"	function	line:13	class:DriveLeft	signature:()
-DriveRight	C:\Users\installer\MBot2017\src\CompoundAction.cpp	/^DriveRight::DriveRight(int _speed) {$/;"	function	line:20	class:DriveRight	signature:(int _speed)
-Run	C:\Users\installer\MBot2017\src\CompoundAction.cpp	/^void DriveRight::Run() {$/;"	function	line:24	class:DriveRight	signature:()
-DriveRotate	C:\Users\installer\MBot2017\src\CompoundAction.cpp	/^DriveRotate::DriveRotate(int _speed, int _dir){$/;"	function	line:31	class:DriveRotate	signature:(int _speed, int _dir)
-Run	C:\Users\installer\MBot2017\src\CompoundAction.cpp	/^void DriveRotate::Run() {$/;"	function	line:36	class:DriveRotate	signature:()
-DriveVertical	C:\Users\installer\MBot2017\src\CompoundAction.cpp	/^DriveVertical::DriveVertical(int _speed) {$/;"	function	line:46	class:DriveVertical	signature:(int _speed)
-Run	C:\Users\installer\MBot2017\src\CompoundAction.cpp	/^void DriveVertical::Run() {$/;"	function	line:50	class:DriveVertical	signature:()
+BOT_H	C:\Users\installer\MBot2017\include\Bot.h	/^#define BOT_H$/;"	macro	line:2
+Bot	C:\Users\installer\MBot2017\include\Bot.h	/^namespace Bot {$/;"	namespace	line:11
+motors	C:\Users\installer\MBot2017\include\Bot.h	/^static Motor* motors[12];$/;"	member	line:14	namespace:Bot
+tickCount	C:\Users\installer\MBot2017\include\Bot.h	/^static int* tickCount;$/;"	member	line:15	namespace:Bot
+actionQueue	C:\Users\installer\MBot2017\include\Bot.h	/^static MotorActionQueue actionQueue;$/;"	member	line:17	namespace:Bot

@@ -7,7 +7,7 @@
 // MotorAction(Motor& _motor, int _speed, int _goalValue, SensorID _sensor, int _timeLimit = -1, int _cancelThreshold = -1);
 
 DriveLeft::DriveLeft(int _speed) {
-	this->speed = _speed;
+	speed = _speed;
 }
 
 void DriveLeft::Run() {
@@ -50,6 +50,7 @@ DriveVertical::DriveVertical(int _speed) {
 void DriveVertical::Run() {
 	DriveLeft(speed).Run();
 	DriveRight(speed).Run();
+	printf("tick count: %d\n", Bot::tickCount);
 }
 
 
