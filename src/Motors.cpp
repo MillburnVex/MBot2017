@@ -1,24 +1,11 @@
-#ifndef MOTORS
-#define MOTORS
-#include "main.h"
+#ifndef MOTOR
+#define MOTOR
+#include "API.h"
 #include "Motors.h"
-
-Motor::Motor(int _id, SensorID _defaultSensorID) {
-	id = _id;
-	defaultSensorID = _defaultSensorID;
+void Motors::SetSpeed(MotorID id, int speed) {
+	motorSet(id, speed);
 }
-
-void Motor::SetSpeed(int speed){
-	currentPower = speed;
-	motorSet(id, currentPower);
-}
-
-void Motor::Stop(){
-	currentPower = 0;
+void Motors::Stop(MotorID id) {
 	motorStop(id);
-}
-
-bool Motor::operator==(Motor other) {
-	return other.id == id;
 }
 #endif

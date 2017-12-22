@@ -4,8 +4,9 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
-BOT_H	C:\Users\installer\MBot2017\include\Bot.h	/^#define BOT_H$/;"	macro	line:2
-Bot	C:\Users\installer\MBot2017\include\Bot.h	/^namespace Bot {$/;"	namespace	line:11
-motors	C:\Users\installer\MBot2017\include\Bot.h	/^static Motor* motors[12];$/;"	member	line:14	namespace:Bot
-tickCount	C:\Users\installer\MBot2017\include\Bot.h	/^static int* tickCount;$/;"	member	line:15	namespace:Bot
-actionQueue	C:\Users\installer\MBot2017\include\Bot.h	/^static MotorActionQueue actionQueue;$/;"	member	line:17	namespace:Bot
+DRIVE	C:\Users\installer\MBot2017\src\Drive.cpp	/^#define DRIVE$/;"	macro	line:2	file:
+Update	C:\Users\installer\MBot2017\src\Drive.cpp	/^void Drive::Update() {$/;"	function	line:8	class:Drive	signature:()
+LeftSide	C:\Users\installer\MBot2017\src\Drive.cpp	/^void Drive::LeftSide(int speed) {$/;"	function	line:30	class:Drive	signature:(int speed)
+RightSide	C:\Users\installer\MBot2017\src\Drive.cpp	/^void Drive::RightSide(int speed) {$/;"	function	line:33	class:Drive	signature:(int speed)
+Move	C:\Users\installer\MBot2017\src\Drive.cpp	/^void Drive::Move(int dir, unsigned int speed) {$/;"	function	line:39	class:Drive	signature:(int dir, unsigned int speed)
+Stop	C:\Users\installer\MBot2017\src\Drive.cpp	/^void Drive::Stop() {$/;"	function	line:61	class:Drive	signature:()
