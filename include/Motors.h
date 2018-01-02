@@ -10,5 +10,6 @@ enum MotorID {
 namespace Motors {
 void SetSpeed(MotorID id, int speed);
 void Stop(MotorID id);
+void ToggleAll();
 }
 #endif

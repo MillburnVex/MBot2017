@@ -6,18 +6,28 @@
 #include "Drive.h"
 #include "Lift.h"
 #include "Sensors.h"
+#include "Motors.h"
 
 const int MILLIS_PER_TICK = 20;
+static int ticksUntilCommand = 0;
 
 void Tick() {
-	Drive::Update();
-	MobileGoal::Update();
-	//Lift::Update();
+	//Drive::Update();
+	//MobileGoal::Update();
+	Lift::Update();
 	// The stuff below doesn't really fit into any specific update so it goes here
 	// Recalibrates stuff so you don't have to power cycle
-	if(Controller::GetButton(ButtonGroup::LEFT_TRIG, JOY_DOWN)) {
-		Sensors::CalibrateAll();
-	}
+	if(ticksUntilCommand == 0) {
+		if(Controller::GetButton(ButtonGroup::LEFT_TRIG, JOY_DOWN)) {
+			if(Controller::GetButton(ButtonGroup::LEFT_TRIG, JOY_UP)) {
+				Motors::ToggleAll();
+			} else {
+				Sensors::CalibrateAll();
+			}
+			ticksUntilCommand = 120;
+		}
+	} else --ticksUntilCommand;
+
 	// TODO make buttons have their own enum values (goddamnit if this were kotlin...)
 }
 

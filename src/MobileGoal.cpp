@@ -6,7 +6,7 @@
 #include "Controller.h"
 static int GOAL_LIFT_SPEED = 100;
 static int GOAL_DROP_SPEED = 100;
-static int GOAL_LIFT_HOLD_POSITION = 100;
+static int GOAL_LIFT_HOLD_POSITION = 300;
 static int GOAL_LIFT_OUT_POSITION = 26900;
 static bool dropping = false;
 static bool lifting = false;
@@ -26,7 +26,6 @@ void MobileGoal::Update() {
 		MobileGoal::Lift();
 	if(Controller::GetButton(ButtonGroup::RIGHT_TRIG, JOY_DOWN) == 1)
 		MobileGoal::Drop();
-	printf("goal value: %d\n", Sensors::GetValue(Sensor::P_MOBILE_GOAL));
 	if(dropping) {
 		if(Sensors::GetValue(Sensor::P_MOBILE_GOAL) > GOAL_LIFT_OUT_POSITION) {
 			dropping = false;
