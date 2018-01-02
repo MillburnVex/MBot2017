@@ -22,12 +22,11 @@ void MobileGoal::Drop() {
 }
 
 void MobileGoal::Update() {
-
 	if(Controller::GetButton(ButtonGroup::RIGHT_TRIG, JOY_UP) == 1)
 		MobileGoal::Lift();
 	if(Controller::GetButton(ButtonGroup::RIGHT_TRIG, JOY_DOWN) == 1)
 		MobileGoal::Drop();
-
+	printf("goal value: %d\n", Sensors::GetValue(Sensor::P_MOBILE_GOAL));
 	if(dropping) {
 		if(Sensors::GetValue(Sensor::P_MOBILE_GOAL) > GOAL_LIFT_OUT_POSITION) {
 			dropping = false;

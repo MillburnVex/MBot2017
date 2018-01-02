@@ -4,9 +4,16 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
-DRIVE	C:\Users\installer\MBot2017\src\Drive.cpp	/^#define DRIVE$/;"	macro	line:2	file:
-Update	C:\Users\installer\MBot2017\src\Drive.cpp	/^void Drive::Update() {$/;"	function	line:8	class:Drive	signature:()
-LeftSide	C:\Users\installer\MBot2017\src\Drive.cpp	/^void Drive::LeftSide(int speed) {$/;"	function	line:30	class:Drive	signature:(int speed)
-RightSide	C:\Users\installer\MBot2017\src\Drive.cpp	/^void Drive::RightSide(int speed) {$/;"	function	line:33	class:Drive	signature:(int speed)
-Move	C:\Users\installer\MBot2017\src\Drive.cpp	/^void Drive::Move(int dir, unsigned int speed) {$/;"	function	line:39	class:Drive	signature:(int dir, unsigned int speed)
-Stop	C:\Users\installer\MBot2017\src\Drive.cpp	/^void Drive::Stop() {$/;"	function	line:61	class:Drive	signature:()
+LIFT	C:\Users\installer\MBot2017\src\Lift.cpp	/^#define LIFT$/;"	macro	line:2	file:
+MAX_LIFT_VALUE	C:\Users\installer\MBot2017\src\Lift.cpp	/^const int MAX_LIFT_VALUE = -33000;$/;"	variable	line:11
+MIN_LIFT_VALUE	C:\Users\installer\MBot2017\src\Lift.cpp	/^const int MIN_LIFT_VALUE = -100;$/;"	variable	line:12
+LIFT_CORRECTION_THRESHOLD	C:\Users\installer\MBot2017\src\Lift.cpp	/^const int LIFT_CORRECTION_THRESHOLD = 500;$/;"	variable	line:14
+LIFT_SPEED	C:\Users\installer\MBot2017\src\Lift.cpp	/^const int LIFT_SPEED = 100;$/;"	variable	line:15
+goal	C:\Users\installer\MBot2017\src\Lift.cpp	/^static int goal = MIN_LIFT_VALUE;$/;"	variable	line:17	file:
+LeftSide	C:\Users\installer\MBot2017\src\Lift.cpp	/^void Lift::LeftSide(int speed) {$/;"	function	line:19	class:Lift	signature:(int speed)
+RightSide	C:\Users\installer\MBot2017\src\Lift.cpp	/^void Lift::RightSide(int speed) {$/;"	function	line:25	class:Lift	signature:(int speed)
+Up	C:\Users\installer\MBot2017\src\Lift.cpp	/^void Lift::Up() {$/;"	function	line:31	class:Lift	signature:()
+Stop	C:\Users\installer\MBot2017\src\Lift.cpp	/^void Lift::Stop() {$/;"	function	line:35	class:Lift	signature:()
+Down	C:\Users\installer\MBot2017\src\Lift.cpp	/^void Lift::Down() {$/;"	function	line:41	class:Lift	signature:()
+SideOutOfBounds	C:\Users\installer\MBot2017\src\Lift.cpp	/^bool Lift::SideOutOfBounds(int value) {$/;"	function	line:45	class:Lift	signature:(int value)
+Update	C:\Users\installer\MBot2017\src\Lift.cpp	/^void Lift::Update() {$/;"	function	line:49	class:Lift	signature:()

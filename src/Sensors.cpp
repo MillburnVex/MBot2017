@@ -27,6 +27,7 @@ bool Sensors::HasProgressed(Sensor id, int lastValue, int goalValue) {
 
 void Sensors::CalibrateAll() {
 	Calibrate(Sensor::P_MOBILE_GOAL);
+	Calibrate(Sensor::P_LIFT_LEFT);
 }
 
 #endif

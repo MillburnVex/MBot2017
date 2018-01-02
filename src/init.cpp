@@ -39,6 +39,6 @@ void initializeIO() {
  * can be implemented in this task if desired.
  */
 void initialize() {
-	Sensors::Calibrate(Sensor::P_MOBILE_GOAL);
+	Sensors::CalibrateAll();
 }
 #endif
