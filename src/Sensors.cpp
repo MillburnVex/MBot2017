@@ -15,7 +15,7 @@ void Sensors::Calibrate(Sensor id) {
 }
 
 int Sensors::GetValue(Sensor id) {
-	return analogReadCalibratedHR(id);
+	return analogReadCalibrated(id);
 }
 
 // Checks if a sensor has moved towards
@@ -28,6 +28,7 @@ bool Sensors::HasProgressed(Sensor id, int lastValue, int goalValue) {
 void Sensors::CalibrateAll() {
 	Calibrate(Sensor::P_MOBILE_GOAL);
 	Calibrate(Sensor::P_LIFT_LEFT);
+	Calibrate(Sensor::P_LIFT_RIGHT);
 }
 
 #endif

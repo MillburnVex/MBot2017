@@ -9,6 +9,7 @@
 #include "Motors.h"
 
 const int MILLIS_PER_TICK = 20;
+const int TICKS_PER_COMMAND = 120;
 static int ticksUntilCommand = 0;
 
 void Tick() {
@@ -24,10 +25,11 @@ void Tick() {
 			} else {
 				Sensors::CalibrateAll();
 			}
-			ticksUntilCommand = 120;
+			ticksUntilCommand = TICKS_PER_COMMAND;
 		}
-	} else --ticksUntilCommand;
-
+	} else {
+		--ticksUntilCommand;
+	}
 	// TODO make buttons have their own enum values (goddamnit if this were kotlin...)
 }
 

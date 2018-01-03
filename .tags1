@@ -4,25 +4,3 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
-LIFT	C:\Users\installer\MBot2017\src\Lift.cpp	/^#define LIFT$/;"	macro	line:2	file:
-MAX_LIFT_VALUE	C:\Users\installer\MBot2017\src\Lift.cpp	/^const int MAX_LIFT_VALUE = -33000;$/;"	variable	line:11
-MIN_LIFT_VALUE	C:\Users\installer\MBot2017\src\Lift.cpp	/^const int MIN_LIFT_VALUE = -200;$/;"	variable	line:12
-LIFT_CORRECTION_THRESHOLD	C:\Users\installer\MBot2017\src\Lift.cpp	/^const int LIFT_CORRECTION_THRESHOLD = 1000;$/;"	variable	line:15
-LIFT_SPEED	C:\Users\installer\MBot2017\src\Lift.cpp	/^const int LIFT_SPEED = 100;$/;"	variable	line:17
-LIFT_CORRECTING_SPEED	C:\Users\installer\MBot2017\src\Lift.cpp	/^const int LIFT_CORRECTING_SPEED = 50;$/;"	variable	line:19
-LIFT_HOLD_CORRECTION_THRESHOLD	C:\Users\installer\MBot2017\src\Lift.cpp	/^const int LIFT_HOLD_CORRECTION_THRESHOLD = 1000;$/;"	variable	line:22
-LIFT_HOLD_CORRECTION_SPEED_UP	C:\Users\installer\MBot2017\src\Lift.cpp	/^const int LIFT_HOLD_CORRECTION_SPEED_UP = 60;$/;"	variable	line:24
-LIFT_HOLD_CORRECTION_SPEED_DOWN	C:\Users\installer\MBot2017\src\Lift.cpp	/^const int LIFT_HOLD_CORRECTION_SPEED_DOWN = 1;$/;"	variable	line:25
-LIFT_HOLD_PASSIVE_POWER	C:\Users\installer\MBot2017\src\Lift.cpp	/^const int LIFT_HOLD_PASSIVE_POWER = 10;$/;"	variable	line:27
-hold	C:\Users\installer\MBot2017\src\Lift.cpp	/^static int hold = MIN_LIFT_VALUE;$/;"	variable	line:29	file:
-resting	C:\Users\installer\MBot2017\src\Lift.cpp	/^static bool resting = false;$/;"	variable	line:30	file:
-lifting	C:\Users\installer\MBot2017\src\Lift.cpp	/^static bool lifting = false;$/;"	variable	line:31	file:
-dropping	C:\Users\installer\MBot2017\src\Lift.cpp	/^static bool dropping = false;$/;"	variable	line:32	file:
-LeftSide	C:\Users\installer\MBot2017\src\Lift.cpp	/^void Lift::LeftSide(int speed) {$/;"	function	line:34	class:Lift	signature:(int speed)
-RightSide	C:\Users\installer\MBot2017\src\Lift.cpp	/^void Lift::RightSide(int speed) {$/;"	function	line:39	class:Lift	signature:(int speed)
-Up	C:\Users\installer\MBot2017\src\Lift.cpp	/^void Lift::Up() {$/;"	function	line:44	class:Lift	signature:()
-Hold	C:\Users\installer\MBot2017\src\Lift.cpp	/^void Lift::Hold() {$/;"	function	line:49	class:Lift	signature:()
-Down	C:\Users\installer\MBot2017\src\Lift.cpp	/^void Lift::Down() {$/;"	function	line:57	class:Lift	signature:()
-SideOutOfBounds	C:\Users\installer\MBot2017\src\Lift.cpp	/^bool Lift::SideOutOfBounds(int value) {$/;"	function	line:62	class:Lift	signature:(int value)
-GetCurrentAverageHeight	C:\Users\installer\MBot2017\src\Lift.cpp	/^int Lift::GetCurrentAverageHeight() {$/;"	function	line:66	class:Lift	signature:()
-Update	C:\Users\installer\MBot2017\src\Lift.cpp	/^void Lift::Update() {$/;"	function	line:70	class:Lift	signature:()
