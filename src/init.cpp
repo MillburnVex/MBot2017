@@ -11,8 +11,8 @@
  */
 #ifndef INIT
 #define INIT
-#include "main.h"
-#include "Sensors.h"
+#include "../include/main.h"
+#include "../include/Sensors.h"
 
 /*
  * Runs pre-initialization code. This function will be started in kernel mode one time while the
@@ -39,6 +39,6 @@ void initializeIO() {
  * can be implemented in this task if desired.
  */
 void initialize() {
-	Sensors::CalibrateAll();
+    Sensors::InitAll();
 }
 #endif

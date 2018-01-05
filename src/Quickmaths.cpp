@@ -1,7 +1,7 @@
 #ifndef QUICKMATHS
 #define QUICKMATHS
-#include "main.h"
-#include "Quickmaths.h"
+#include "../include/main.h"
+#include "../include/Quickmaths.h"
 
 int Math::Abs(int a) {
 	if(a < 0)

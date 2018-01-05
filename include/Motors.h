@@ -5,7 +5,7 @@ enum MotorID {
 	MOBILE_GOAL_LIFT = 4,
 	CLAW = 5,
 	LIFT_LEFT_1 = 6, LIFT_LEFT_2 = 7, LIFT_RIGHT_1 = 8, LIFT_RIGHT_2 = 9,
-	ARM_LEFT, ARM_RIGHT
+	ARM = 10
 };
 namespace Motors {
 void SetSpeed(MotorID id, int speed);

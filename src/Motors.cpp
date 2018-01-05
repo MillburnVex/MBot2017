@@ -1,7 +1,7 @@
 #ifndef MOTOR
 #define MOTOR
-#include "API.h"
-#include "Motors.h"
+#include "../include/API.h"
+#include "../include/Motors.h"
 static bool enabled = true;
 void Motors::ToggleAll() {
 	enabled = !enabled;

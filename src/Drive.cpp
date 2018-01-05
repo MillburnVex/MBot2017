@@ -1,9 +1,9 @@
 #ifndef DRIVE
 #define DRIVE
-#include "Motors.h"
-#include "Drive.h"
-#include "Quickmaths.h"
-#include "Controller.h"
+#include "../include/Motors.h"
+#include "../include/Drive.h"
+#include "../include/Quickmaths.h"
+#include "../include/Controller.h"
 
 void Drive::Update() {
 	int vertical = Controller::GetJoystick(JoystickPort::DRIVE_VERTICAL);

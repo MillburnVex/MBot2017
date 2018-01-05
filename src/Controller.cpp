@@ -1,7 +1,7 @@
 #ifndef CONTROLLER
 #define CONTROLLER
-#include "Controller.h"
-#include "Quickmaths.h"
+#include "../include/Controller.h"
+#include "../include/Quickmaths.h"
 
 static int VALUE_THRESHOLD = 30;
 
