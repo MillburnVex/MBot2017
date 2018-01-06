@@ -3,8 +3,8 @@
 #include "../include/API.h"
 
 enum Sensor {
-	// P = potentiometer
-	NONE = -1, P_MOBILE_GOAL = 1, P_LIFT_LEFT = 2, P_LIFT_RIGHT = 3, P_ARM = 4, ULTRASONIC = -2
+	// P = potentiometer, E = encoder
+	NONE = -1, P_MOBILE_GOAL = 1, E_LIFT_LEFT = -3, E_LIFT_RIGHT = -4, P_ARM = 2, ULTRASONIC = -2
 };
 
 namespace Sensors {
@@ -14,8 +14,10 @@ int GetValue(Sensor id);
 bool HasProgressed(Sensor id, int lastValue, int goalValue);
 static Ultrasonic sonic;
 static Gyro gyro;
+static Encoder liftLeft;
+static Encoder liftRight;
 void InitAll();
 
-	void CalibrateAll();
+void CalibrateAll();
 }
 #endif

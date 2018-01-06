@@ -19,41 +19,41 @@ static bool pressedDebugModeButton = false;
 static bool debugMode = false;
 
 void Tick() {
-    if(!debugMode) {
-        Drive::Update();
-        MobileGoal::Update();
-        Claw::Update();
-        Lift::Update();
-        Arm::Update();
-        Autodump::Update();
-    } else {
-        if(ticksUntilCommand == 0) {
-            if(Controller::GetButton(ButtonGroup::LEFT_TRIG, JOY_DOWN)) {
-                Sensors::CalibrateAll();
-                print("calibrated all sensors\n");
-                ticksUntilCommand = TICKS_PER_COMMAND;
-                return;
-            }
-            if(Controller::GetButton(ButtonGroup::LEFT_TRIG, JOY_UP)) {
-                Motors::ToggleAll();
-                print("toggled all motors\n");
-                ticksUntilCommand = TICKS_PER_COMMAND;
-                return;
-            }
-        } else {
-            --ticksUntilCommand;
-        }
-    }
-    if(Controller::GetButton(ButtonGroup::LEFT_GROUP, JOY_LEFT) && Controller::GetButton(ButtonGroup::LEFT_GROUP, JOY_RIGHT)) {
-        if(!pressedDebugModeButton) {
-            debugMode = !debugMode;
-            ticksUntilCommand = 0;
-            printf("debug mode: %d\n", debugMode);
-        }
-        pressedDebugModeButton = true;
-    } else {
-        pressedDebugModeButton = false;
-    }
+	if(!debugMode) {
+		//Drive::Update();
+		//MobileGoal::Update();
+		//Claw::Update();
+		Lift::Update();
+		Arm::Update();
+		//Autodump::Update();
+	} else {
+		if(ticksUntilCommand == 0) {
+			if(Controller::GetButton(ButtonGroup::LEFT_TRIG, JOY_DOWN)) {
+				Sensors::CalibrateAll();
+				print("calibrated all sensors\n");
+				ticksUntilCommand = TICKS_PER_COMMAND;
+				return;
+			}
+			if(Controller::GetButton(ButtonGroup::LEFT_TRIG, JOY_UP)) {
+				Motors::ToggleAll();
+				print("toggled all motors\n");
+				ticksUntilCommand = TICKS_PER_COMMAND;
+				return;
+			}
+		} else {
+			--ticksUntilCommand;
+		}
+	}
+	if(Controller::GetButton(ButtonGroup::LEFT_GROUP, JOY_LEFT) && Controller::GetButton(ButtonGroup::LEFT_GROUP, JOY_RIGHT)) {
+		if(!pressedDebugModeButton) {
+			debugMode = !debugMode;
+			ticksUntilCommand = 0;
+			printf("debug mode: %d\n", debugMode);
+		}
+		pressedDebugModeButton = true;
+	} else {
+		pressedDebugModeButton = false;
+	}
 }
 
 void operatorControl() {
