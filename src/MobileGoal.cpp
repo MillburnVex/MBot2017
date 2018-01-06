@@ -33,14 +33,14 @@ void MobileGoal::Update() {
             dropping = false;
             Motors::Stop(MotorID::MOBILE_GOAL_LIFT);
         } else {
-            Motors::SetSpeed(MotorID::MOBILE_GOAL_LIFT, -GOAL_DROP_SPEED);
+            Motors::SetSpeed(MotorID::MOBILE_GOAL_LIFT, GOAL_DROP_SPEED);
         }
     } else if (lifting) {
         if (Sensors::GetValue(Sensor::P_MOBILE_GOAL) < GOAL_LIFT_HOLD_POSITION) {
             lifting = false;
             Motors::Stop(MotorID::MOBILE_GOAL_LIFT);
         } else {
-            Motors::SetSpeed(MotorID::MOBILE_GOAL_LIFT, GOAL_LIFT_SPEED);
+            Motors::SetSpeed(MotorID::MOBILE_GOAL_LIFT, -GOAL_LIFT_SPEED);
         }
     }
 }

@@ -8,7 +8,7 @@ void Down();
 void Hold();
 void Update();
 bool SideOutOfBounds(int value);
-int GetCurrentAverageHeight();
+int GetCurrentHeight();
 
     bool IsResting();
 }

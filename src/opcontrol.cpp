@@ -20,9 +20,9 @@ static bool debugMode = false;
 
 void Tick() {
 	if(!debugMode) {
-		//Drive::Update();
-		//MobileGoal::Update();
-		//Claw::Update();
+		Drive::Update();
+		MobileGoal::Update();
+		Claw::Update();
 		Lift::Update();
 		Arm::Update();
 		//Autodump::Update();

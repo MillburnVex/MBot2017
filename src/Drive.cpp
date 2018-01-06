@@ -38,13 +38,13 @@ void Drive::RightSide(int speed) {
 // direction, thus, speed is an unsigned int
 void Drive::Move(int dir, unsigned int speed) {
 	if(dir == ROTATE_LEFT) {
-		LeftSide(-speed);
-		RightSide(speed);
+		LeftSide(speed);
+		RightSide(-speed);
 	}
 
 	if(dir == ROTATE_RIGHT) {
-		LeftSide(speed);
-		RightSide(-speed);
+		LeftSide(-speed);
+		RightSide(speed);
 	}
 
 	if(dir == FORWARDS) {
