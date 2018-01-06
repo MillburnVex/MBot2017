@@ -208,7 +208,7 @@ void Lift::Update() {
 					}
 					LeftSide(-LIFT_HOLD_CORRECTION_SPEED_DOWN);
 				} else {
-					print("right passive");
+					print("left passive");
 					LeftSide(LIFT_HOLD_PASSIVE_POWER);
 				}
 			}
