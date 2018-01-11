@@ -11,6 +11,8 @@ namespace Arm {
 
     bool IsFullyDown();
 
+    bool IsHeldOut();
+
     void HoldOut();
 
     void Hold();

@@ -10,6 +10,8 @@ const int RIGHT_ENCODER_TOP = 1;
 const int RIGHT_ENCODER_BOTTOM = 2;
 const int LEFT_ENCODER_TOP = 3;
 const int LEFT_ENCODER_BOTTOM = 4;
+const int SONIC_CHANGE_THRESHOLD = 5;
+static int lastSonic = -1;
 
 void Sensors::Calibrate(Sensor id) {
 	analogCalibrate(id);
@@ -17,7 +19,16 @@ void Sensors::Calibrate(Sensor id) {
 
 int Sensors::GetValue(Sensor id) {
 	if(id == ULTRASONIC) {
-		return ultrasonicGet(sonic);
+		int s = ultrasonicGet(sonic);
+		if(lastSonic == -1) {
+			lastSonic = s;
+			return s;
+		} else if(Math::Abs(lastSonic - s) > SONIC_CHANGE_THRESHOLD)
+			return lastSonic;
+		else {
+			lastSonic = s;
+			return s;
+		}
 	} else if(id == E_LIFT_LEFT) {
 		return encoderGet(liftLeft);
 	} else if(id == E_LIFT_RIGHT) {

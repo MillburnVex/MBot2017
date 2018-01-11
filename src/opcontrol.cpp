@@ -25,6 +25,7 @@ void Tick() {
 		Claw::Update();
 		Lift::Update();
 		Arm::Update();
+		//printf("sonic: %d", Sensors::GetValue(Sensor::ULTRASONIC));
 		//Autodump::Update();
 	} else {
 		if(ticksUntilCommand == 0) {

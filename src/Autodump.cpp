@@ -9,14 +9,16 @@
 #include "../include/Autodump.h"
 
 // -1: inactive
-// 0: lifting up and moving arm
-// 1: opening claw
-// 2: moving arm back to forward position and lifting down
+// 0: lifting up and moving arm to out position
+// 1: moving arm to drop position
+// 2: opening claw
+// 3: moving arm back to forward position
+// 4: lifting down
 static int stage = -1;
 static int ticksInStage = 0;
 static int ticksSinceLastPressed = -1;
 const int TICKS_BETWEEN_PRESSES = 120;
-const int DISTANCE_TO_CONE_FROM_ULTRASONIC = 10; // TODO
+const int DISTANCE_TO_CONE_FROM_ULTRASONIC = 12; // TODO
 void Autodump::Start() {
     stage = 0;
 }
@@ -47,20 +49,26 @@ void Autodump::Update() {
         if (stage != -1) {
             ++ticksInStage;
             if (stage == 0) {
-                bool shouldLift = IsConeInFrontOfUltrasonic();
-                if (shouldLift)
-                    Lift::Up();
-                bool shouldRaiseArm = !Arm::IsFullyUp();
-                if (shouldRaiseArm)
-                    Arm::Up();
-                if (!shouldLift && !shouldRaiseArm) {
+                if (!Arm::IsHeldOut())
+                    Arm::HoldOut();
+                else {
                     stage = 1;
                     ticksInStage = 0;
-                    Lift::Hold();
                     // arm will stop automatically
                 }
             }
-            if (stage == 1) {
+
+            if(stage == 1) {
+                if (IsConeInFrontOfUltrasonic())
+                    Lift::Up();
+                else {
+                    stage = 2;
+                    ticksInStage = 0;
+                }
+            }
+                        print("stage 1 done");
+            return;
+            if (stage == 2) {
                 if (Claw::IsFullyOut()) {
                     // claw will stop automatically
                     stage = 2;
@@ -68,17 +76,20 @@ void Autodump::Update() {
                 } else
                     Claw::Out();
             }
-            if (stage == 2) {
-                if (Lift::IsResting() && Arm::IsFullyDown()) {
-                    stage = -1;
-                    ticksInStage = 0;
-                    return;
-                }
-                if (!Lift::IsResting()) {
-                    Lift::Down();
-                }
+            if (stage == 3) {
                 if (!Arm::IsFullyDown()) {
                     Arm::Down();
+                } else {
+                    stage = 4;
+                    ticksInStage = 0;
+                }
+            }
+            if(stage == 4) {
+                if(!Lift::IsResting()) {
+                    Lift::Down();
+                } else {
+                    stage = -1;
+                    return;
                 }
             }
         }

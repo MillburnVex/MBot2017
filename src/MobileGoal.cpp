@@ -24,9 +24,9 @@ void MobileGoal::Drop() {
 }
 
 void MobileGoal::Update() {
-    if (Controller::GetButton(ButtonGroup::RIGHT_TRIG, JOY_UP))
+    if (Controller::GetButton(ButtonGroup::LEFT_TRIG, JOY_DOWN))
         MobileGoal::Lift();
-    if (Controller::GetButton(ButtonGroup::RIGHT_TRIG, JOY_DOWN))
+    if (Controller::GetButton(ButtonGroup::LEFT_TRIG, JOY_UP))
         MobileGoal::Drop();
     if (dropping) {
         if (Sensors::GetValue(Sensor::P_MOBILE_GOAL) > GOAL_LIFT_OUT_POSITION) {

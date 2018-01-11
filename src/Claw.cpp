@@ -8,6 +8,7 @@
 const int TICKS_TO_FULLY_IN = 20;
 const int TICKS_TO_FULLY_OUT = -20;
 const int CLAW_SPEED = 60;
+const int CLAW_HOLD_SPEED = 10;
 static int ticks = 0;
 static bool fullyIn = false;
 static bool fullyOut = false;
@@ -32,6 +33,12 @@ void Claw::Stop() {
     out = false;
 }
 
+void Claw::Hold() {
+    hold = true;
+    in = false;
+    out = false;
+}
+
 bool Claw::IsFullyIn() {
     return fullyIn;
 }
@@ -41,12 +48,22 @@ bool Claw::IsFullyOut() {
 }
 
 void Claw::Update() {
-    if (Controller::GetButton(ButtonGroup::LEFT_TRIG, JOY_DOWN)) {
+    if (Controller::GetButton(ButtonGroup::RIGHT_TRIG, JOY_DOWN)) {
         Out();
-    } else if (Controller::GetButton(ButtonGroup::LEFT_TRIG, JOY_UP)) {
+    } else if (Controller::GetButton(ButtonGroup::RIGHT_TRIG, JOY_UP)) {
         In();
+    } else {
+        Hold();
+    }
+    if(out) {
+        Motors::SetSpeed(MotorID::CLAW, -CLAW_SPEED);
+    } else if(in) {
+        Motors::SetSpeed(MotorID::CLAW, CLAW_SPEED);
+    } else if(hold) {
+        Motors::SetSpeed(MotorID::CLAW, CLAW_HOLD_SPEED);
     }
 
+    /*
     if (out) {
         if (ticks == TICKS_TO_FULLY_OUT) {
             out = false;
@@ -72,8 +89,8 @@ void Claw::Update() {
             Motors::SetSpeed(MotorID::CLAW, CLAW_SPEED);
             ++ticks;
         }
-
     }
+    */
 }
 
 #endif

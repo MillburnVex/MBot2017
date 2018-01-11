@@ -9,6 +9,8 @@ namespace Claw {
 
     bool IsFullyIn();
 
+    void Hold();
+
     bool IsFullyOut();
 
     void Stop();

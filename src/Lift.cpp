@@ -6,8 +6,9 @@
 #include "../include/Sensors.h"
 #include "../include/Quickmaths.h"
 #include "../include/Lift.h"
+#include "../include/Arm.h"
 
-const bool PRINT = true;
+const bool PRINT = false;
 const bool T = false;
 
 const int LIFT_MAX_VALUE = 64;
@@ -71,13 +72,12 @@ bool Lift::IsResting() {
 }
 
 void Lift::Update() {
-    if (Controller::GetButton(ButtonGroup::RIGHT_GROUP, JOY_DOWN))
+    if (Controller::GetButton(ButtonGroup::LEFT_GROUP, JOY_DOWN))
         Down();
-    else if (Controller::GetButton(ButtonGroup::RIGHT_GROUP, JOY_UP))
+    else if (Controller::GetButton(ButtonGroup::LEFT_GROUP, JOY_UP))
         Up();
     else
         Hold();
-    printf("goal: %d, drop: %d, lift: %d\n", goal, dropping, lifting);
     int right = Sensors::GetValue(Sensor::E_LIFT_LEFT);
     int left = Sensors::GetValue(Sensor::E_LIFT_RIGHT);
     bool rightBelow = right < LIFT_MIN_VALUE;
@@ -85,7 +85,6 @@ void Lift::Update() {
     bool rightAbove = right > LIFT_MAX_VALUE;
     bool leftAbove = left > LIFT_MAX_VALUE;
     if(leftBelow && rightBelow && !lifting) {
-        print("no action: 1");
         resting = true;
         LeftSide(0);
         RightSide(0);
@@ -93,14 +92,12 @@ void Lift::Update() {
         return;
     }
     if(lifting && rightAbove && leftAbove) {
-        print("no action: 2");
         LeftSide(0);
         RightSide(0);
         Hold();
         return;
     }
     if(dropping && resting) {
-        print("no action: 3");
         Hold();
         return;
     }

@@ -5,9 +5,11 @@
 #include "../include/Quickmaths.h"
 #include "../include/Controller.h"
 
+const float SPEED_MULTIPLIER = 0.9f;
+
 void Drive::Update() {
-	int vertical = Controller::GetJoystick(JoystickPort::DRIVE_VERTICAL);
-	int rotate = Controller::GetJoystick(JoystickPort::DRIVE_ROTATE);
+	int vertical = Controller::GetJoystick(JoystickPort::DRIVE_VERTICAL) * SPEED_MULTIPLIER;
+	int rotate = Controller::GetJoystick(JoystickPort::DRIVE_ROTATE) * SPEED_MULTIPLIER;
 	if(Math::Abs(vertical) > Math::Abs(rotate)) {
 		if(vertical < 0) {
 			Move(Drive::BACKWARDS, Math::Abs(vertical));
