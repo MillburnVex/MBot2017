@@ -25,8 +25,8 @@ void Tick() {
 		Claw::Update();
 		Lift::Update();
 		Arm::Update();
-		//printf("sonic: %d", Sensors::GetValue(Sensor::ULTRASONIC));
-		//Autodump::Update();
+		//printf("sonic: %d\n", Sensors::GetValue(Sensor::ULTRASONIC));
+		Autodump::Update();
 	} else {
 		if(ticksUntilCommand == 0) {
 			if(Controller::GetButton(ButtonGroup::LEFT_TRIG, JOY_DOWN)) {

@@ -1,20 +1,20 @@
 #ifndef ARM_H
 #define ARM_H
 namespace Arm {
-    void Up();
+void Up();
 
-    void Down();
+void Down();
 
-    void Update();
+void Update();
 
-    bool IsFullyUp();
+bool IsFullyUp();
 
-    bool IsFullyDown();
+bool IsFullyDown();
 
-    bool IsHeldOut();
+bool IsHeldOut();
 
-    void HoldOut();
+void HoldAt(int i);
 
-    void Hold();
+void Hold();
 }
 #endif
