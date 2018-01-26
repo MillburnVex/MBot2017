@@ -47,7 +47,7 @@ bool Claw::IsFullyOut() {
 	return fullyOut;
 }
 
-void Claw::Update() {
+void Claw::UpdateControls() {
 	if (Controller::GetButton(ButtonGroup::LEFT_TRIG, JOY_DOWN)) {
 		Out();
 	} else if (Controller::GetButton(ButtonGroup::LEFT_TRIG, JOY_UP)) {
@@ -55,42 +55,16 @@ void Claw::Update() {
 	} else {
 		Hold();
 	}
-	if(out) {
-		Motors::SetSpeed(MotorID::CLAW, -CLAW_SPEED);
-	} else if(in) {
-		Motors::SetSpeed(MotorID::CLAW, CLAW_SPEED);
-	} else if(hold) {
-		Motors::SetSpeed(MotorID::CLAW, CLAW_HOLD_SPEED);
-	}
+}
 
-	/*
-	   if (out) {
-	    if (ticks == TICKS_TO_FULLY_OUT) {
-	        out = false;
-	        ticks = 0;
-	        fullyOut = true;
-	        Motors::Stop(MotorID::CLAW);
-	    } else {
-	        fullyIn = false;
-	        Motors::SetSpeed(MotorID::CLAW, -CLAW_SPEED);
-	        --ticks;
-	    }
-	   } else if(hold) {
-	    Motors::SetSpeed(MotorID::CLAW, 10);
-	   } else if (in && !fullyIn) {
-	    if (ticks == TICKS_TO_FULLY_IN) {
-	        in = false;
-	        fullyIn = true;
-	        ticks = 0;
-	        hold = true;
-	        Motors::Stop(MotorID::CLAW);
-	    } else {
-	        fullyOut = false;
-	        Motors::SetSpeed(MotorID::CLAW, CLAW_SPEED);
-	 ++ticks;
-	    }
-	   }
-	 */
+void Claw::Update() {
+	if(out) {
+		Motors::SetSpeed(MotorID::CLAW, CLAW_SPEED);
+	} else if(in) {
+		Motors::SetSpeed(MotorID::CLAW, -CLAW_SPEED);
+	} else if(hold) {
+		Motors::SetSpeed(MotorID::CLAW, -CLAW_HOLD_SPEED);
+	}
 }
 
 #endif

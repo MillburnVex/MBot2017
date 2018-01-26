@@ -20,13 +20,22 @@ static bool debugMode = false;
 
 void Tick() {
 	if(!debugMode) {
+		Autodump::UpdateControls();
+		Autodump::Update();
+		Drive::UpdateControls();
 		Drive::Update();
+		if(!Autodump::IsActive()) {
+			MobileGoal::UpdateControls();
+			Claw::UpdateControls();
+			Lift::UpdateControls();
+			Arm::UpdateControls();
+		}
+
 		MobileGoal::Update();
 		Claw::Update();
 		Lift::Update();
 		Arm::Update();
 		//printf("sonic: %d\n", Sensors::GetValue(Sensor::ULTRASONIC));
-		Autodump::Update();
 	} else {
 		if(ticksUntilCommand == 0) {
 			if(Controller::GetButton(ButtonGroup::LEFT_TRIG, JOY_DOWN)) {
@@ -58,8 +67,9 @@ void Tick() {
 }
 
 void operatorControl() {
-	taskRunLoop(Tick, MILLIS_PER_TICK);
+	//taskRunLoop(Tick, MILLIS_PER_TICK);
 	while (1) {
+		Tick();
 		delay(20);
 	}
 }

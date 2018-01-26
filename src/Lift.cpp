@@ -11,11 +11,11 @@
 const bool PRINT = false;
 const bool T = false;
 
-const int LIFT_MAX_VALUE = 64;
+const int LIFT_MAX_VALUE = 106;
 const int LIFT_MIN_VALUE = 1;
 
 // how different from each other the sides have to be when moving to be corrected
-const int LIFT_CORRECTION_THRESHOLD = 2;
+const int LIFT_CORRECTION_THRESHOLD = 3;
 // speed for up/down normally
 const int LIFT_SPEED = 100;
 const int LIFT_REST_SPEED = 10;
@@ -43,8 +43,8 @@ void Lift::LeftSide(int speed) {
 
 void Lift::RightSide(int speed) {
 	rightSpeed = speed;
-	Motors::SetSpeed(MotorID::LIFT_RIGHT_1, speed);
-	Motors::SetSpeed(MotorID::LIFT_RIGHT_2, speed);
+	Motors::SetSpeed(MotorID::LIFT_RIGHT_1, -speed);
+	Motors::SetSpeed(MotorID::LIFT_RIGHT_2, -speed);
 }
 
 void Lift::Up() {
@@ -64,8 +64,18 @@ void Lift::Hold() {
 	}
 }
 
+void Lift::HoldAt(int pos){
+	if(dropping || lifting) {
+		dropping = false;
+		lifting = false;
+		// if this is resting, momentum should only carry it down
+		liftMomentumTicks = 0;
+		goal = pos;
+	}
+}
+
 void Lift::Down() {
-	goal = LIFT_MIN_VALUE;
+	goal = LIFT_MIN_VALUE - 1 - LIFT_CORRECTION_THRESHOLD;
 	dropping = true;
 	lifting = false;
 }
@@ -79,29 +89,32 @@ bool Lift::IsResting() {
 }
 
 int GetMultiplier(int current) {
-	return Math::Abs(goal - current) * 8;
+	return Math::Abs(goal - current) * 3;
 }
 
-void Lift::Update() {
+void Lift::UpdateControls() {
 	if (Controller::GetButton(ButtonGroup::LEFT_GROUP, JOY_DOWN))
 		Down();
 	else if (Controller::GetButton(ButtonGroup::LEFT_GROUP, JOY_UP))
 		Up();
 	else
 		Hold();
+}
+
+void Lift::Update() {
 	int right = Sensors::GetValue(Sensor::E_LIFT_LEFT);
 	int left = Sensors::GetValue(Sensor::E_LIFT_RIGHT);
 	bool rightBelow = right < LIFT_MIN_VALUE;
 	bool leftBelow = left < LIFT_MIN_VALUE;
 	bool rightAbove = right > LIFT_MAX_VALUE;
 	bool leftAbove = left > LIFT_MAX_VALUE;
-	printf("r: %d, l: %d - ", right, left);
+	//printf("r: %d, l: %d - ", right, left);
 	if(leftBelow && rightBelow) {
 		resting = true;
 		liftMomentumTicks = -1;
 	}
 	if(resting && !lifting) {
-		print("cancel: resting and not lifting\n");
+		//print("cancel: resting and not lifting\n");
 		resting = true;
 		LeftSide(-LIFT_REST_SPEED);
 		RightSide(-LIFT_REST_SPEED);
@@ -109,14 +122,16 @@ void Lift::Update() {
 		return;
 	}
 	if(lifting && rightAbove && leftAbove) {
-		print("cancel: both sides above and lifting\n");
+		//print("cancel: both sides above and lifting\n");
 		LeftSide(0);
 		RightSide(0);
 		Hold();
 		return;
 	}
 	if(dropping && resting) {
-		print("cancel: trying to drop while resting\n");
+		//print("cancel: trying to drop while resting\n");
+		LeftSide(-LIFT_REST_SPEED);
+		RightSide(-LIFT_REST_SPEED);
 		Hold();
 		return;
 	}
@@ -126,30 +141,29 @@ void Lift::Update() {
 			goal = GetCurrentHeight();
 			RightSide(LIFT_HOLD_SPEED);
 			LeftSide(LIFT_HOLD_SPEED);
-			printf("stopped correcting for momentum, goal: %d\n", goal);
+			//printf("stopped correcting for momentum, goal: %d\n", goal);
 		} else {
-			print("correcting for momentum\n");
+			//print("correcting for momentum\n");
 			++liftMomentumTicks;
 			RightSide(LIFT_MOMENTUM_CORRECTION_SPEED);
 			LeftSide(LIFT_MOMENTUM_CORRECTION_SPEED);
 		}
 	} else {
-		printf("goal: %d - ", goal);
+		//printf("goal: %d - ", goal);
 		if(Math::Abs(goal - right) > LIFT_CORRECTION_THRESHOLD) {
 			int sign = Math::Sign(goal - right);
-			printf("right side needs correction: %d, %d, ", sign, GetMultiplier(right));
-
+			//printf("right side needs correction: %d, %d, ", sign, GetMultiplier(right));
 			RightSide(sign * GetMultiplier(right));
 		} else {
-			print("right side passive, ");
+			//print("right side passive, ");
 			RightSide(LIFT_HOLD_SPEED);
 		}
 		if(Math::Abs(goal - left) > LIFT_CORRECTION_THRESHOLD) {
 			int sign = Math::Sign(goal - left);
-			printf("left side needs correction: %d ,%d\n", sign,GetMultiplier(left));
+			//printf("left side needs correction: %d ,%d\n", sign, GetMultiplier(left));
 			LeftSide(sign * GetMultiplier(left));
 		} else {
-			print("left side passive\n");
+			//print("left side passive\n");
 			LeftSide(LIFT_HOLD_SPEED);
 		}
 	}

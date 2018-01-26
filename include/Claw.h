@@ -1,18 +1,20 @@
 #ifndef CLAW_H
 #define CLAW_H
 namespace Claw {
-    void Out();
+void Out();
 
-    void In();
+void In();
 
-    void Update();
+void UpdateControls();
 
-    bool IsFullyIn();
+void Update();
 
-    void Hold();
+bool IsFullyIn();
 
-    bool IsFullyOut();
+void Hold();
 
-    void Stop();
+bool IsFullyOut();
+
+void Stop();
 }
 #endif

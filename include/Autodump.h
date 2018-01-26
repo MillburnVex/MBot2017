@@ -1,12 +1,16 @@
 #ifndef AUTODUMP_H
 #define AUTODUMP_H
 namespace Autodump {
-    void Start();
+void Start();
 
-    void Cancel();
+void Cancel();
 
-    void Update();
+void UpdateControls();
 
-    bool IsConeInFrontOfUltrasonic();
+bool IsActive();
+
+void Update();
+
+bool IsConeInFrontOfUltrasonic();
 }
 #endif

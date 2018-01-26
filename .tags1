@@ -4,30 +4,15 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
-LIFT	C:\Users\installer\MBot2017\src\Lift.cpp	/^#define LIFT$/;"	macro	line:2	file:
-PRINT	C:\Users\installer\MBot2017\src\Lift.cpp	/^const bool PRINT = false;$/;"	variable	line:11
-T	C:\Users\installer\MBot2017\src\Lift.cpp	/^const bool T = false;$/;"	variable	line:12
-LIFT_MAX_VALUE	C:\Users\installer\MBot2017\src\Lift.cpp	/^const int LIFT_MAX_VALUE = 64;$/;"	variable	line:14
-LIFT_MIN_VALUE	C:\Users\installer\MBot2017\src\Lift.cpp	/^const int LIFT_MIN_VALUE = 1;$/;"	variable	line:15
-LIFT_CORRECTION_THRESHOLD	C:\Users\installer\MBot2017\src\Lift.cpp	/^const int LIFT_CORRECTION_THRESHOLD = 2;$/;"	variable	line:18
-LIFT_SPEED	C:\Users\installer\MBot2017\src\Lift.cpp	/^const int LIFT_SPEED = 100;$/;"	variable	line:20
-LIFT_REST_SPEED	C:\Users\installer\MBot2017\src\Lift.cpp	/^const int LIFT_REST_SPEED = 10;$/;"	variable	line:21
-LIFT_TICKS_TO_CORRECT_FOR_MOMENTUM	C:\Users\installer\MBot2017\src\Lift.cpp	/^const int LIFT_TICKS_TO_CORRECT_FOR_MOMENTUM = 10;$/;"	variable	line:23
-LIFT_MOMENTUM_CORRECTION_SPEED	C:\Users\installer\MBot2017\src\Lift.cpp	/^const int LIFT_MOMENTUM_CORRECTION_SPEED = 50;$/;"	variable	line:24
-liftMomentumTicks	C:\Users\installer\MBot2017\src\Lift.cpp	/^static int liftMomentumTicks = -1;$/;"	variable	line:25	file:
-goal	C:\Users\installer\MBot2017\src\Lift.cpp	/^static int goal = LIFT_MIN_VALUE;$/;"	variable	line:27	file:
-resting	C:\Users\installer\MBot2017\src\Lift.cpp	/^static bool resting = true;$/;"	variable	line:29	file:
-lifting	C:\Users\installer\MBot2017\src\Lift.cpp	/^static bool lifting = false;$/;"	variable	line:30	file:
-dropping	C:\Users\installer\MBot2017\src\Lift.cpp	/^static bool dropping = false;$/;"	variable	line:31	file:
-leftSpeed	C:\Users\installer\MBot2017\src\Lift.cpp	/^static int leftSpeed = 0;$/;"	variable	line:33	file:
-rightSpeed	C:\Users\installer\MBot2017\src\Lift.cpp	/^static int rightSpeed = 0;$/;"	variable	line:34	file:
-LIFT_HOLD_SPEED	C:\Users\installer\MBot2017\src\Lift.cpp	/^const int LIFT_HOLD_SPEED = 20;$/;"	variable	line:36
-LeftSide	C:\Users\installer\MBot2017\src\Lift.cpp	/^void Lift::LeftSide(int speed) {$/;"	function	line:38	class:Lift	signature:(int speed)
-RightSide	C:\Users\installer\MBot2017\src\Lift.cpp	/^void Lift::RightSide(int speed) {$/;"	function	line:44	class:Lift	signature:(int speed)
-Up	C:\Users\installer\MBot2017\src\Lift.cpp	/^void Lift::Up() {$/;"	function	line:50	class:Lift	signature:()
-Hold	C:\Users\installer\MBot2017\src\Lift.cpp	/^void Lift::Hold() {$/;"	function	line:57	class:Lift	signature:()
-Down	C:\Users\installer\MBot2017\src\Lift.cpp	/^void Lift::Down() {$/;"	function	line:67	class:Lift	signature:()
-GetCurrentHeight	C:\Users\installer\MBot2017\src\Lift.cpp	/^int Lift::GetCurrentHeight() {$/;"	function	line:73	class:Lift	signature:()
-IsResting	C:\Users\installer\MBot2017\src\Lift.cpp	/^bool Lift::IsResting() {$/;"	function	line:77	class:Lift	signature:()
-GetMultiplier	C:\Users\installer\MBot2017\src\Lift.cpp	/^int GetMultiplier(int current) {$/;"	function	line:81	signature:(int current)
-Update	C:\Users\installer\MBot2017\src\Lift.cpp	/^void Lift::Update() {$/;"	function	line:85	class:Lift	signature:()
+AUTODUMP	C:\Users\installer\MBot2017\src\Autodump.cpp	/^#define AUTODUMP$/;"	macro	line:2	file:
+startingPosition	C:\Users\installer\MBot2017\src\Autodump.cpp	/^static int startingPosition = 0;$/;"	variable	line:17	file:
+stage	C:\Users\installer\MBot2017\src\Autodump.cpp	/^static int stage = -1; \/\/2+2=4-1=3$/;"	variable	line:18	file:
+ticksInStage	C:\Users\installer\MBot2017\src\Autodump.cpp	/^static int ticksInStage = 0;$/;"	variable	line:19	file:
+badTicks	C:\Users\installer\MBot2017\src\Autodump.cpp	/^static int badTicks = 0;$/;"	variable	line:20	file:
+DISTANCE_TO_CONE_FROM_ULTRASONIC	C:\Users\installer\MBot2017\src\Autodump.cpp	/^const int DISTANCE_TO_CONE_FROM_ULTRASONIC = 12; \/\/ TODO$/;"	variable	line:21
+Start	C:\Users\installer\MBot2017\src\Autodump.cpp	/^void Autodump::Start() {$/;"	function	line:22	class:Autodump	signature:()
+Cancel	C:\Users\installer\MBot2017\src\Autodump.cpp	/^void Autodump::Cancel() {$/;"	function	line:27	class:Autodump	signature:()
+IsActive	C:\Users\installer\MBot2017\src\Autodump.cpp	/^bool Autodump::IsActive() {$/;"	function	line:31	class:Autodump	signature:()
+IsConeInFrontOfUltrasonic	C:\Users\installer\MBot2017\src\Autodump.cpp	/^bool Autodump::IsConeInFrontOfUltrasonic() {$/;"	function	line:35	class:Autodump	signature:()
+UpdateControls	C:\Users\installer\MBot2017\src\Autodump.cpp	/^void Autodump::UpdateControls() {$/;"	function	line:39	class:Autodump	signature:()
+Update	C:\Users\installer\MBot2017\src\Autodump.cpp	/^void Autodump::Update() {$/;"	function	line:51	class:Autodump	signature:()

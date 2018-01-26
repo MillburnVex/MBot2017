@@ -28,11 +28,15 @@ void Autodump::Cancel() {
 	stage = -1;
 }
 
+bool Autodump::IsActive() {
+	return stage != -1;
+}
+
 bool Autodump::IsConeInFrontOfUltrasonic() {
 	return Sensors::GetValue(Sensor::ULTRASONIC) < DISTANCE_TO_CONE_FROM_ULTRASONIC;
 }
 
-void Autodump::Update() {
+void Autodump::UpdateControls() {
 	if(stage == -1) {
 		if (Controller::GetButton(ButtonGroup::RIGHT_GROUP, JOY_LEFT)) {
 			Start();
@@ -42,21 +46,26 @@ void Autodump::Update() {
 			Cancel();
 		}
 	}
+}
 
+void Autodump::Update() {
+	printf("%d\n", stage);
 	if(stage == 0) {
-		Arm::HoldAt(startingPosition + 200);
+		Arm::HoldAt(startingPosition + 400);
+		Claw::Hold();
 		Lift::Up();
-		if(Sensors::GetValue(Sensor::ULTRASONIC) > 3 && Sensors::GetValue(Sensor::ULTRASONIC) < 20) {
+		if(Sensors::GetValue(Sensor::ULTRASONIC) > 3 && Sensors::GetValue(Sensor::ULTRASONIC) < 25) {
 			ticksInStage++;
 		}
 
-		if(!(Sensors::GetValue(Sensor::ULTRASONIC) > 3 && Sensors::GetValue(Sensor::ULTRASONIC) < 20)) {
+		if(!(Sensors::GetValue(Sensor::ULTRASONIC) > 3 && Sensors::GetValue(Sensor::ULTRASONIC) < 25)) {
 			ticksInStage++;
 			badTicks++;
 		}
-		if(ticksInStage>=10) {
-			if(badTicks>5) {
+		if(ticksInStage>=6) {
+			if(badTicks>3) {
 				ticksInStage = 0;
+				badTicks = 0;
 				stage++;
 			}else{
 				badTicks = 0;
@@ -64,24 +73,50 @@ void Autodump::Update() {
 			}
 		}
 	}else if(stage==1) {
-		Lift::Hold();
+		Lift::HoldAt(Lift::GetCurrentHeight()-40);
 		Arm::Up();
 		ticksInStage++;
-		if(ticksInStage>50) {
+		if(ticksInStage>30) {
 			ticksInStage = 0;
 			stage++;
 		}
 	}else if(stage==2) {
 		Arm::Hold();
+		Lift::Down();
+		ticksInStage++;
+		if(ticksInStage>20) {
+			stage++;
+			ticksInStage = 0;
+		}
+	}else if(stage == 3) {
+		Lift::Hold();
+		Arm::Hold();
 		Claw::Out();
 		ticksInStage++;
-		if (ticksInStage>40) {
-			stage = 0;
+		if(ticksInStage>10) {
+			stage++;
 			ticksInStage = 0;
-			badTicks = 0;
+		}
+	}else if(stage == 4) {
+		Lift::Up();
+		Arm::Hold();
+		Claw::Out();
+		ticksInStage++;
+		if(ticksInStage>20) {
+			stage = -1;
+			ticksInStage = 0;
+			Arm::HoldAt(startingPosition);
+			Lift::HoldAt(0);
 		}
 	}
 	/*
+
+	   if (ticksInStage>40) {
+	        stage = -1;
+	        ticksInStage = 0;
+	        badTicks = 0;
+
+	   }
 	                          if (ticksSinceLastPressed == -1) {
 	                          if (stage == -1) {
 	                          if (Controller::GetButton(ButtonGroup::RIGHT_GROUP, JOY_LEFT)) {

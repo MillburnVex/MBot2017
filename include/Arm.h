@@ -5,13 +5,9 @@ void Up();
 
 void Down();
 
+void UpdateControls();
+
 void Update();
-
-bool IsFullyUp();
-
-bool IsFullyDown();
-
-bool IsHeldOut();
 
 void HoldAt(int i);
 

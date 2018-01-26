@@ -6,10 +6,10 @@
 
 const int SONIC_ECHO_PORT = 1;
 const int SONIC_PING_PORT = 2;
-const int RIGHT_ENCODER_TOP = 3;
-const int RIGHT_ENCODER_BOTTOM = 4;
-const int LEFT_ENCODER_TOP = 5;
-const int LEFT_ENCODER_BOTTOM = 6;
+const int RIGHT_ENCODER_TOP = 5;
+const int RIGHT_ENCODER_BOTTOM = 6;
+const int LEFT_ENCODER_TOP = 3;
+const int LEFT_ENCODER_BOTTOM = 4;
 const int SONIC_CHANGE_THRESHOLD = 5;
 static int lastSonic = -1;
 
@@ -31,8 +31,8 @@ int Sensors::GetValue(Sensor id) {
 void Sensors::InitAll() {
 	Calibrate(Sensor::P_MOBILE_GOAL);
 	Calibrate(Sensor::P_ARM);
-	liftRight = encoderInit(RIGHT_ENCODER_TOP, RIGHT_ENCODER_BOTTOM, false);
-	liftLeft = encoderInit(LEFT_ENCODER_TOP, LEFT_ENCODER_BOTTOM, true);
+	liftRight = encoderInit(RIGHT_ENCODER_TOP, RIGHT_ENCODER_BOTTOM, true);
+	liftLeft = encoderInit(LEFT_ENCODER_TOP, LEFT_ENCODER_BOTTOM, false);
 	sonic = ultrasonicInit(SONIC_ECHO_PORT, SONIC_PING_PORT);
 }
 

@@ -3,6 +3,7 @@
 namespace MobileGoal {
 void Lift();
 void Drop();
+void UpdateControls();
 void Update();
 }
 #endif
