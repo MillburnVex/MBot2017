@@ -5,7 +5,7 @@
 #include "../include/Quickmaths.h"
 #include "../include/Controller.h"
 
-const float SPEED_MULTIPLIER = 0.9f;
+const float SPEED_MULTIPLIER = 1.0f;
 static int vertical = 0;
 static int rotate = 0;
 

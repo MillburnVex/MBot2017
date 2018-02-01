@@ -45,40 +45,12 @@
  */
 void runDrive(int jx, int jy){
 	motorSet(MotorID::DRIVE_LEFT, jx-jy);
-	motorSet(MotorID::DRIVE_RIGHT, jx+jy);
+	motorSet(MotorID::DRIVE_RIGHT, -jx-jy);
 }
 
 void autonomous() {
-	Ultrasonic sonic = ultrasonicInit(2,1);
-
-	motorSet(MotorID::CLAW, 20);
-	runDrive(-100,0);
-	motorSet(MotorID::ARM, 100);
-	delay(200);
 	runDrive(100,0);
-	motorSet(1, 100);
-	delay(1000);
-	motorSet(MotorID::ARM, 20);
-	delay(2000);
-	motorSet(1, -100);
-	runDrive(0,0);
-	delay(1500);
-	motorSet(1,0);
-	motorSet(MotorID::CLAW, -100);
-	delay(500);
-	motorSet(MotorID::CLAW,0);
-	runDrive(-100,0);
-	delay(2500);
-	runDrive(0,100);
-	delay(2000);
-	runDrive(100,0);
-	motorSet(1,127);
-	delay(1000);
-	runDrive(0,0);
-	delay(500);
-	runDrive(-100,0);
-	delay(500);
-	motorSet(1,0);
+	delay(4000);
 	runDrive(0,0);
 }
 

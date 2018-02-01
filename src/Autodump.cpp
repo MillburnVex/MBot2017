@@ -76,7 +76,7 @@ void Autodump::Update() {
 		Lift::HoldAt(Lift::GetCurrentHeight()-40);
 		Arm::Up();
 		ticksInStage++;
-		if(ticksInStage>30) {
+		if(ticksInStage>40) {
 			ticksInStage = 0;
 			stage++;
 		}

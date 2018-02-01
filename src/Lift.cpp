@@ -18,7 +18,7 @@ const int LIFT_MIN_VALUE = 1;
 const int LIFT_CORRECTION_THRESHOLD = 3;
 // speed for up/down normally
 const int LIFT_SPEED = 100;
-const int LIFT_REST_SPEED = 10;
+const int LIFT_REST_SPEED = 30;
 
 const int LIFT_TICKS_TO_CORRECT_FOR_MOMENTUM = 10;
 const int LIFT_MOMENTUM_CORRECTION_SPEED = 50;

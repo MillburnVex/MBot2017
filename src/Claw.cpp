@@ -8,7 +8,7 @@
 const int TICKS_TO_FULLY_IN = 20;
 const int TICKS_TO_FULLY_OUT = -20;
 const int CLAW_SPEED = 60;
-const int CLAW_HOLD_SPEED = 10;
+const int CLAW_HOLD_SPEED = 20;
 static int ticks = 0;
 static bool fullyIn = false;
 static bool fullyOut = false;
