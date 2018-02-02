@@ -19,11 +19,8 @@
  * PROS contains FreeRTOS (http://www.freertos.org) whose source code may be
  * obtained from http://sourceforge.net/projects/freertos/files/ or on request.
  */
-
-#ifndef MAIN_H_
-
-// This prevents multiple inclusion, which isn't bad for this file but is good practice
-#define MAIN_H_
+// Prevents muliple copies of this from being #included
+#pragma once
 
 #include <API.h>
 
@@ -97,6 +94,4 @@ void operatorControl();
 // End C++ export structure
 #ifdef __cplusplus
 }
-#endif
-
 #endif
