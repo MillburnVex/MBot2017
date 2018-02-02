@@ -1,0 +1,99 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	0	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+MAKE_COMMAND	C:\Users\installer\VexBotM\common.mk	/^MAKE_COMMAND=make$/;"	macro	line:4
+DEVICE	C:\Users\installer\VexBotM\common.mk	/^DEVICE=VexCortex$/;"	macro	line:7
+LIBRARIES	C:\Users\installer\VexBotM\common.mk	/^LIBRARIES=$(ROOT)\/firmware\/libpros.a -lgcc -lm$/;"	macro	line:9
+MCUPREFIX	C:\Users\installer\VexBotM\common.mk	/^MCUPREFIX=arm-none-eabi-$/;"	macro	line:11
+MCUAFLAGS	C:\Users\installer\VexBotM\common.mk	/^MCUAFLAGS=-mthumb -mcpu=cortex-m3 -mlittle-endian$/;"	macro	line:13
+MCUCFLAGS	C:\Users\installer\VexBotM\common.mk	/^MCUCFLAGS=-mthumb -mcpu=cortex-m3 -mlittle-endian$/;"	macro	line:15
+MCULFLAGS	C:\Users\installer\VexBotM\common.mk	/^MCULFLAGS=-nostartfiles -Wl,-static -Bfirmware -Wl,-u,VectorTable -Wl,-T -Xlinker firmware\/cortex.ld$/;"	macro	line:17
+MCUPREPARE	C:\Users\installer\VexBotM\common.mk	/^MCUPREPARE=$(OBJCOPY) $(OUT) -O binary $(BINDIR)\/$(OUTBIN)$/;"	macro	line:19
+SIZEFLAGS	C:\Users\installer\VexBotM\common.mk	/^SIZEFLAGS=$/;"	macro	line:21
+UPLOAD	C:\Users\installer\VexBotM\common.mk	/^UPLOAD=@java -jar firmware\/uniflash.jar vex $(BINDIR)\/$(OUTBIN)$/;"	macro	line:23
+ASMEXT	C:\Users\installer\VexBotM\common.mk	/^ASMEXT=s$/;"	macro	line:26
+CEXT	C:\Users\installer\VexBotM\common.mk	/^CEXT=c$/;"	macro	line:27
+CPPEXT	C:\Users\installer\VexBotM\common.mk	/^CPPEXT=cpp$/;"	macro	line:28
+HEXT	C:\Users\installer\VexBotM\common.mk	/^HEXT=h$/;"	macro	line:29
+INCLUDE	C:\Users\installer\VexBotM\common.mk	/^INCLUDE=-I$(ROOT)\/include -I$(ROOT)\/src$/;"	macro	line:30
+OUTBIN	C:\Users\installer\VexBotM\common.mk	/^OUTBIN=output.bin$/;"	macro	line:31
+OUTNAME	C:\Users\installer\VexBotM\common.mk	/^OUTNAME=output.elf$/;"	macro	line:32
+AFLAGS	C:\Users\installer\VexBotM\common.mk	/^AFLAGS:=$(MCUAFLAGS)$/;"	macro	line:35
+ARFLAGS	C:\Users\installer\VexBotM\common.mk	/^ARFLAGS:=$(MCUCFLAGS)$/;"	macro	line:36
+CCFLAGS	C:\Users\installer\VexBotM\common.mk	/^CCFLAGS:=-c -Wall $(MCUCFLAGS) -Os -ffunction-sections -fsigned-char -fomit-frame-pointer -fsingle-precision-constant$/;"	macro	line:37
+CFLAGS	C:\Users\installer\VexBotM\common.mk	/^CFLAGS:=$(CCFLAGS) -std=gnu99 -Werror=implicit-function-declaration$/;"	macro	line:38
+CPPFLAGS	C:\Users\installer\VexBotM\common.mk	/^CPPFLAGS:=$(CCFLAGS) -fno-exceptions -fno-rtti -felide-constructors$/;"	macro	line:39
+LDFLAGS	C:\Users\installer\VexBotM\common.mk	/^LDFLAGS:=-Wall $(MCUCFLAGS) $(MCULFLAGS) -Wl,--gc-sections$/;"	macro	line:40
+AR	C:\Users\installer\VexBotM\common.mk	/^AR:=$(MCUPREFIX)ar$/;"	macro	line:43
+AS	C:\Users\installer\VexBotM\common.mk	/^AS:=$(MCUPREFIX)as$/;"	macro	line:44
+CC	C:\Users\installer\VexBotM\common.mk	/^CC:=$(MCUPREFIX)gcc$/;"	macro	line:45
+CPPCC	C:\Users\installer\VexBotM\common.mk	/^CPPCC:=$(MCUPREFIX)g++$/;"	macro	line:46
+OBJCOPY	C:\Users\installer\VexBotM\common.mk	/^OBJCOPY:=$(MCUPREFIX)objcopy$/;"	macro	line:47
+API_H_	C:\Users\installer\VexBotM\include\API.h	/^#define API_H_$/;"	macro	line:22
+JOY_DOWN	C:\Users\installer\VexBotM\include\API.h	/^#define JOY_DOWN /;"	macro	line:40
+JOY_LEFT	C:\Users\installer\VexBotM\include\API.h	/^#define JOY_LEFT /;"	macro	line:44
+JOY_UP	C:\Users\installer\VexBotM\include\API.h	/^#define JOY_UP /;"	macro	line:48
+JOY_RIGHT	C:\Users\installer\VexBotM\include\API.h	/^#define JOY_RIGHT /;"	macro	line:52
+ACCEL_X	C:\Users\installer\VexBotM\include\API.h	/^#define ACCEL_X /;"	macro	line:56
+ACCEL_Y	C:\Users\installer\VexBotM\include\API.h	/^#define ACCEL_Y /;"	macro	line:60
+BOARD_NR_ADC_PINS	C:\Users\installer\VexBotM\include\API.h	/^#define BOARD_NR_ADC_PINS /;"	macro	line:141
+BOARD_NR_GPIO_PINS	C:\Users\installer\VexBotM\include\API.h	/^#define BOARD_NR_GPIO_PINS /;"	macro	line:151
+HIGH	C:\Users\installer\VexBotM\include\API.h	/^#define HIGH /;"	macro	line:157
+LOW	C:\Users\installer\VexBotM\include\API.h	/^#define LOW /;"	macro	line:163
+INPUT	C:\Users\installer\VexBotM\include\API.h	/^#define INPUT /;"	macro	line:172
+INPUT_ANALOG	C:\Users\installer\VexBotM\include\API.h	/^#define INPUT_ANALOG /;"	macro	line:179
+INPUT_FLOATING	C:\Users\installer\VexBotM\include\API.h	/^#define INPUT_FLOATING /;"	macro	line:186
+OUTPUT	C:\Users\installer\VexBotM\include\API.h	/^#define OUTPUT /;"	macro	line:193
+OUTPUT_OD	C:\Users\installer\VexBotM\include\API.h	/^#define OUTPUT_OD /;"	macro	line:200
+INTERRUPT_EDGE_RISING	C:\Users\installer\VexBotM\include\API.h	/^#define INTERRUPT_EDGE_RISING /;"	macro	line:318
+INTERRUPT_EDGE_FALLING	C:\Users\installer\VexBotM\include\API.h	/^#define INTERRUPT_EDGE_FALLING /;"	macro	line:322
+INTERRUPT_EDGE_BOTH	C:\Users\installer\VexBotM\include\API.h	/^#define INTERRUPT_EDGE_BOTH /;"	macro	line:327
+InterruptHandler	C:\Users\installer\VexBotM\include\API.h	/^typedef void (*InterruptHandler)(unsigned char pin);$/;"	typedef	line:332
+IME_ADDR_MAX	C:\Users\installer\VexBotM\include\API.h	/^#define IME_ADDR_MAX /;"	macro	line:458
+Gyro	C:\Users\installer\VexBotM\include\API.h	/^typedef void * Gyro;$/;"	typedef	line:548
+Encoder	C:\Users\installer\VexBotM\include\API.h	/^typedef void * Encoder;$/;"	typedef	line:605
+Ultrasonic	C:\Users\installer\VexBotM\include\API.h	/^typedef void * Ultrasonic;$/;"	typedef	line:653
+FILE	C:\Users\installer\VexBotM\include\API.h	/^typedef int FILE;$/;"	typedef	line:744
+SERIAL_DATABITS_8	C:\Users\installer\VexBotM\include\API.h	/^#define SERIAL_DATABITS_8 /;"	macro	line:748
+SERIAL_DATABITS_9	C:\Users\installer\VexBotM\include\API.h	/^#define SERIAL_DATABITS_9 /;"	macro	line:752
+SERIAL_STOPBITS_1	C:\Users\installer\VexBotM\include\API.h	/^#define SERIAL_STOPBITS_1 /;"	macro	line:756
+SERIAL_STOPBITS_2	C:\Users\installer\VexBotM\include\API.h	/^#define SERIAL_STOPBITS_2 /;"	macro	line:760
+SERIAL_PARITY_NONE	C:\Users\installer\VexBotM\include\API.h	/^#define SERIAL_PARITY_NONE /;"	macro	line:764
+SERIAL_PARITY_EVEN	C:\Users\installer\VexBotM\include\API.h	/^#define SERIAL_PARITY_EVEN /;"	macro	line:768
+SERIAL_PARITY_ODD	C:\Users\installer\VexBotM\include\API.h	/^#define SERIAL_PARITY_ODD /;"	macro	line:772
+SERIAL_8N1	C:\Users\installer\VexBotM\include\API.h	/^#define SERIAL_8N1 /;"	macro	line:776
+stdout	C:\Users\installer\VexBotM\include\API.h	/^#define stdout /;"	macro	line:811
+stdin	C:\Users\installer\VexBotM\include\API.h	/^#define stdin /;"	macro	line:815
+uart1	C:\Users\installer\VexBotM\include\API.h	/^#define uart1 /;"	macro	line:819
+uart2	C:\Users\installer\VexBotM\include\API.h	/^#define uart2 /;"	macro	line:823
+EOF	C:\Users\installer\VexBotM\include\API.h	/^#define EOF /;"	macro	line:829
+SEEK_SET	C:\Users\installer\VexBotM\include\API.h	/^#define	SEEK_SET /;"	macro	line:837
+SEEK_CUR	C:\Users\installer\VexBotM\include\API.h	/^#define	SEEK_CUR /;"	macro	line:844
+SEEK_END	C:\Users\installer\VexBotM\include\API.h	/^#define	SEEK_END /;"	macro	line:851
+LCD_BTN_LEFT	C:\Users\installer\VexBotM\include\API.h	/^#define LCD_BTN_LEFT /;"	macro	line:1123
+LCD_BTN_CENTER	C:\Users\installer\VexBotM\include\API.h	/^#define LCD_BTN_CENTER /;"	macro	line:1127
+LCD_BTN_RIGHT	C:\Users\installer\VexBotM\include\API.h	/^#define LCD_BTN_RIGHT /;"	macro	line:1131
+TASK_MAX	C:\Users\installer\VexBotM\include\API.h	/^#define TASK_MAX /;"	macro	line:1215
+TASK_MAX_PRIORITIES	C:\Users\installer\VexBotM\include\API.h	/^#define TASK_MAX_PRIORITIES /;"	macro	line:1221
+TASK_PRIORITY_LOWEST	C:\Users\installer\VexBotM\include\API.h	/^#define TASK_PRIORITY_LOWEST /;"	macro	line:1226
+TASK_PRIORITY_DEFAULT	C:\Users\installer\VexBotM\include\API.h	/^#define TASK_PRIORITY_DEFAULT /;"	macro	line:1232
+TASK_PRIORITY_HIGHEST	C:\Users\installer\VexBotM\include\API.h	/^#define TASK_PRIORITY_HIGHEST /;"	macro	line:1237
+TASK_DEFAULT_STACK_SIZE	C:\Users\installer\VexBotM\include\API.h	/^#define TASK_DEFAULT_STACK_SIZE /;"	macro	line:1245
+TASK_MINIMAL_STACK_SIZE	C:\Users\installer\VexBotM\include\API.h	/^#define TASK_MINIMAL_STACK_SIZE	/;"	macro	line:1253
+TASK_DEAD	C:\Users\installer\VexBotM\include\API.h	/^#define TASK_DEAD /;"	macro	line:1258
+TASK_RUNNING	C:\Users\installer\VexBotM\include\API.h	/^#define TASK_RUNNING /;"	macro	line:1262
+TASK_RUNNABLE	C:\Users\installer\VexBotM\include\API.h	/^#define TASK_RUNNABLE /;"	macro	line:1267
+TASK_SLEEPING	C:\Users\installer\VexBotM\include\API.h	/^#define TASK_SLEEPING /;"	macro	line:1272
+TASK_SUSPENDED	C:\Users\installer\VexBotM\include\API.h	/^#define TASK_SUSPENDED /;"	macro	line:1276
+TaskHandle	C:\Users\installer\VexBotM\include\API.h	/^typedef void * TaskHandle;$/;"	typedef	line:1283
+Mutex	C:\Users\installer\VexBotM\include\API.h	/^typedef void * Mutex;$/;"	typedef	line:1289
+Semaphore	C:\Users\installer\VexBotM\include\API.h	/^typedef void * Semaphore;$/;"	typedef	line:1295
+TaskCode	C:\Users\installer\VexBotM\include\API.h	/^typedef void (*TaskCode)(void *);$/;"	typedef	line:1306
+MAIN_H_	C:\Users\installer\VexBotM\include\main.h	/^#define MAIN_H_$/;"	macro	line:44
+autonomous	C:\Users\installer\VexBotM\src\auto.c	/^void autonomous() {$/;"	function	line:29
+initializeIO	C:\Users\installer\VexBotM\src\init.c	/^void initializeIO() {$/;"	function	line:23
+initialize	C:\Users\installer\VexBotM\src\init.c	/^void initialize() {$/;"	function	line:39
+operatorControl	C:\Users\installer\VexBotM\src\opcontrol.c	/^void operatorControl() {$/;"	function	line:32
