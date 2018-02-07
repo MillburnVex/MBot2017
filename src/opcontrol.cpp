@@ -68,6 +68,8 @@ void Tick() {
 
 void operatorControl() {
 	//taskRunLoop(Tick, MILLIS_PER_TICK);
+	Arm::MakePID();
+	Lift::MakePID();
 	while (1) {
 		Tick();
 		delay(20);

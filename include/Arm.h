@@ -1,6 +1,8 @@
 #ifndef ARM_H
 #define ARM_H
 namespace Arm {
+void MakePID();
+
 void Up();
 
 void Down();

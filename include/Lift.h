@@ -1,6 +1,7 @@
 #ifndef LIFT_H
 #define LIFT_H
 namespace Lift {
+void MakePID();
 void LeftSide(int speed);
 void RightSide(int speed);
 void Up();

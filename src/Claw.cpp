@@ -9,12 +9,12 @@ const int TICKS_TO_FULLY_IN = 20;
 const int TICKS_TO_FULLY_OUT = -20;
 const int CLAW_SPEED = 60;
 const int CLAW_HOLD_SPEED = 20;
-static int ticks = 0;
-static bool fullyIn = false;
-static bool fullyOut = false;
-static bool in = false;
-static bool hold = false;
-static bool out = false;
+int ticks = 0;
+bool fullyIn = false;
+bool fullyOut = false;
+bool in = false;
+bool hold = false;
+bool out = false;
 
 void Claw::Out() {
 	in = false;

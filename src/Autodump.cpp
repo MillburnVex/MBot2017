@@ -62,8 +62,8 @@ void Autodump::Update() {
 			ticksInStage++;
 			badTicks++;
 		}
-		if(ticksInStage>=6) {
-			if(badTicks>3) {
+		if(ticksInStage>=4) {
+			if(badTicks>2) {
 				ticksInStage = 0;
 				badTicks = 0;
 				stage++;
@@ -73,15 +73,15 @@ void Autodump::Update() {
 			}
 		}
 	}else if(stage==1) {
-		Lift::HoldAt(Lift::GetCurrentHeight()-40);
+		Lift::Hold();
 		Arm::Up();
 		ticksInStage++;
-		if(ticksInStage>40) {
+		if(ticksInStage>30) {
 			ticksInStage = 0;
 			stage++;
 		}
 	}else if(stage==2) {
-		Arm::Hold();
+		Arm::Up();
 		Lift::Down();
 		ticksInStage++;
 		if(ticksInStage>20) {
@@ -102,11 +102,10 @@ void Autodump::Update() {
 		Arm::Hold();
 		Claw::Out();
 		ticksInStage++;
-		if(ticksInStage>20) {
+		if(ticksInStage>15) {
 			stage = -1;
 			ticksInStage = 0;
 			Arm::HoldAt(startingPosition);
-			Lift::HoldAt(0);
 		}
 	}
 	/*

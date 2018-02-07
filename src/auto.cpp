@@ -49,8 +49,37 @@ void runDrive(int jx, int jy){
 }
 
 void autonomous() {
+	Ultrasonic sonic = ultrasonicInit(2,1);
+
+	motorSet(MotorID::CLAW, -20);
+	runDrive(-100,0);
+	motorSet(MotorID::ARM, 100);
+	delay(200);
 	runDrive(100,0);
-	delay(4000);
+	motorSet(MotorID::MOBILE_GOAL_LIFT, -100);
+	delay(1000);
+	motorSet(MotorID::ARM, 20);
+	delay(1700);
+	motorSet(MotorID::MOBILE_GOAL_LIFT, 100);
+	runDrive(0,0);
+	delay(1600);
+	motorSet(MotorID::MOBILE_GOAL_LIFT,0);
+	motorSet(MotorID::CLAW, 100);
+	delay(500);
+	motorSet(MotorID::CLAW,0);
+	runDrive(-100,0);
+	delay(2500);
+	runDrive(0,-100);
+	delay(1700);
+	runDrive(100,0);
+	
+	delay(1200);
+	motorSet(MotorID::MOBILE_GOAL_LIFT,-127);
+	delay(800);
+	runDrive(0,0);
+	motorSet(MotorID::MOBILE_GOAL_LIFT,0);
+	runDrive(-100,0);
+	delay(1000);
 	runDrive(0,0);
 }
 

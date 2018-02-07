@@ -6,7 +6,7 @@ enum {
 };
 void LeftSide(int speed);
 void RightSide(int speed);
-void Move(int dir, unsigned int speed);
+void Move(int x, int z);
 void Stop();
 void UpdateControls();
 void Update();

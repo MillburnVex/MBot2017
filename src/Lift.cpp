@@ -7,6 +7,7 @@
 #include "../include/Quickmaths.h"
 #include "../include/Lift.h"
 #include "../include/Arm.h"
+#include "../include/PID.h"
 
 const bool PRINT = false;
 const bool T = false;
@@ -15,7 +16,7 @@ const int LIFT_MAX_VALUE = 106;
 const int LIFT_MIN_VALUE = 1;
 
 // how different from each other the sides have to be when moving to be corrected
-const int LIFT_CORRECTION_THRESHOLD = 3;
+const int LIFT_CORRECTION_THRESHOLD = 1;
 // speed for up/down normally
 const int LIFT_SPEED = 100;
 const int LIFT_REST_SPEED = 30;
@@ -33,7 +34,15 @@ static bool dropping = false;
 static int leftSpeed = 0;
 static int rightSpeed = 0;
 
+PID pid1(3.0f, 0.2f, 4.0f, 1000, -1000);
+PID pid2(3.0f, 0.2f, 4.0f, 1000, -1000);
+
 const int LIFT_HOLD_SPEED = 20;
+
+void Lift::MakePID(){
+	pid1 = PID(3.0f, 0.1f, 2.0f, 1000, -1000);
+	pid2 = PID(3.0f, 0.1f, 2.0f, 1000, -1000);
+}
 
 void Lift::LeftSide(int speed) {
 	leftSpeed = speed;
@@ -88,10 +97,6 @@ bool Lift::IsResting() {
 	return resting;
 }
 
-int GetMultiplier(int current) {
-	return Math::Abs(goal - current) * 3;
-}
-
 void Lift::UpdateControls() {
 	if (Controller::GetButton(ButtonGroup::LEFT_GROUP, JOY_DOWN))
 		Down();
@@ -108,7 +113,7 @@ void Lift::Update() {
 	bool leftBelow = left < LIFT_MIN_VALUE;
 	bool rightAbove = right > LIFT_MAX_VALUE;
 	bool leftAbove = left > LIFT_MAX_VALUE;
-	//printf("r: %d, l: %d - ", right, left);
+	
 	if(leftBelow && rightBelow) {
 		resting = true;
 		liftMomentumTicks = -1;
@@ -135,38 +140,25 @@ void Lift::Update() {
 		Hold();
 		return;
 	}
-	if(liftMomentumTicks != -1) {
-		if(liftMomentumTicks == LIFT_TICKS_TO_CORRECT_FOR_MOMENTUM) {
-			liftMomentumTicks = -1;
-			goal = GetCurrentHeight();
-			RightSide(LIFT_HOLD_SPEED);
-			LeftSide(LIFT_HOLD_SPEED);
-			//printf("stopped correcting for momentum, goal: %d\n", goal);
-		} else {
-			//print("correcting for momentum\n");
-			++liftMomentumTicks;
-			RightSide(LIFT_MOMENTUM_CORRECTION_SPEED);
-			LeftSide(LIFT_MOMENTUM_CORRECTION_SPEED);
-		}
-	} else {
+	
+		RightSide(pid1.GetValue(right, goal-right));
+		LeftSide(pid2.GetValue(left, goal-left));/*
 		//printf("goal: %d - ", goal);
 		if(Math::Abs(goal - right) > LIFT_CORRECTION_THRESHOLD) {
-			int sign = Math::Sign(goal - right);
 			//printf("right side needs correction: %d, %d, ", sign, GetMultiplier(right));
-			RightSide(sign * GetMultiplier(right));
+			RightSide((goal - right) * P);
 		} else {
 			//print("right side passive, ");
 			RightSide(LIFT_HOLD_SPEED);
 		}
 		if(Math::Abs(goal - left) > LIFT_CORRECTION_THRESHOLD) {
-			int sign = Math::Sign(goal - left);
 			//printf("left side needs correction: %d ,%d\n", sign, GetMultiplier(left));
-			LeftSide(sign * GetMultiplier(left));
+			LeftSide((goal - left) * P);
 		} else {
 			//print("left side passive\n");
 			LeftSide(LIFT_HOLD_SPEED);
-		}
-	}
+		}*/
+	
 }
 
 
