@@ -30,12 +30,10 @@ void Tick() {
 			Lift::UpdateControls();
 			Arm::UpdateControls();
 		}
-
 		MobileGoal::Update();
 		Claw::Update();
 		Lift::Update();
 		Arm::Update();
-		//printf("sonic: %d\n", Sensors::GetValue(Sensor::ULTRASONIC));
 	} else {
 		if(ticksUntilCommand == 0) {
 			if(Controller::GetButton(ButtonGroup::LEFT_TRIG, JOY_DOWN)) {
@@ -67,12 +65,7 @@ void Tick() {
 }
 
 void operatorControl() {
-	//taskRunLoop(Tick, MILLIS_PER_TICK);
-	Arm::MakePID();
-	Lift::MakePID();
-	while (1) {
-		Tick();
-		delay(20);
-	}
+	taskRunLoop(Tick, MILLIS_PER_TICK);
+	while (1) {}
 }
 #endif

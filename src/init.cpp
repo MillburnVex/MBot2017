@@ -11,6 +11,8 @@
  */
 #ifndef INIT
 #define INIT
+#include "../include/Arm.h"
+#include "../include/Lift.h"
 #include "../include/main.h"
 #include "../include/Sensors.h"
 
@@ -39,6 +41,8 @@ void initializeIO() {
  * can be implemented in this task if desired.
  */
 void initialize() {
-    Sensors::InitAll();
+	Sensors::InitAll();
+	Arm::MakePID();
+	Lift::MakePID();
 }
 #endif

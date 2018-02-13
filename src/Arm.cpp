@@ -9,7 +9,6 @@
 #include "../include/Quickmaths.h"
 
 const bool PRINT = true;
-//ur mnomo gay
 const int ARM_SPEED = 100;
 
 const int ARM_HOLD_SPEED = 10;
@@ -73,9 +72,9 @@ void Arm::Update() {
 	}else if(down) {
 		Motors::SetSpeed(MotorID::ARM, -ARM_SPEED);
 	} else {
-		int nval = pid.GetValue(Sensors::GetValue(Sensor::P_ARM), goal-Sensors::GetValue(Sensor::P_ARM));
+		int nval = pid.GetValue(Sensors::GetValue(Sensor::P_ARM), goal);
 		Motors::SetSpeed(MotorID::ARM, nval);
-		//printf("goal: %d, current: %d, P: %d, I:%d D: %d\n", goal, 
+		//printf("goal: %d, current: %d, P: %d, I:%d D: %d\n", goal,
 		//	Sensors::GetValue(Sensor::P_ARM), pVal, iVal, dVal);
 	}
 }

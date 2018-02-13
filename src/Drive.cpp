@@ -16,9 +16,9 @@ void Drive::UpdateControls() {
 }
 
 void Drive::Update() {
-	if(abs(vertical)>deadzone || abs(rotate) > deadzone){
+	if(abs(vertical) > deadzone || abs(rotate) > deadzone) {
 		Move(vertical,rotate);
-	}else{
+	} else {
 		Stop();
 	}
 }

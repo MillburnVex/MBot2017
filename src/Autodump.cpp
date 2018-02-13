@@ -14,14 +14,14 @@
 // 2: opening claw
 // 3: moving arm back to forward position
 // 4: lifting down
-static int startingPosition = 0;
+static int armStartingPosition = 0;
 static int stage = -1; //2+2=4-1=3
 static int ticksInStage = 0;
 static int badTicks = 0;
 const int DISTANCE_TO_CONE_FROM_ULTRASONIC = 12; // TODO
 void Autodump::Start() {
 	stage = 0;
-	startingPosition = Sensors::GetValue(Sensor::P_ARM);
+	armStartingPosition = Sensors::GetValue(Sensor::P_ARM);
 }
 
 void Autodump::Cancel() {
@@ -51,7 +51,7 @@ void Autodump::UpdateControls() {
 void Autodump::Update() {
 	printf("%d\n", stage);
 	if(stage == 0) {
-		Arm::HoldAt(startingPosition + 400);
+		Arm::HoldAt(armStartingPosition + 400);
 		Claw::Hold();
 		Lift::Up();
 		if(Sensors::GetValue(Sensor::ULTRASONIC) > 3 && Sensors::GetValue(Sensor::ULTRASONIC) < 25) {
@@ -102,83 +102,12 @@ void Autodump::Update() {
 		Arm::Hold();
 		Claw::Out();
 		ticksInStage++;
-		if(ticksInStage>15) {
+		if(ticksInStage > 15) {
 			stage = -1;
 			ticksInStage = 0;
-			Arm::HoldAt(startingPosition);
+			Arm::HoldAt(armStartingPosition);
 		}
 	}
-	/*
-
-	   if (ticksInStage>40) {
-	        stage = -1;
-	        ticksInStage = 0;
-	        badTicks = 0;
-
-	   }
-	                          if (ticksSinceLastPressed == -1) {
-	                          if (stage == -1) {
-	                          if (Controller::GetButton(ButtonGroup::RIGHT_GROUP, JOY_LEFT)) {
-	                              Start();
-	                              ticksSinceLastPressed = 0;
-	                          }
-	                          } else if (Controller::GetButton(ButtonGroup::RIGHT_GROUP, JOY_LEFT)) {
-	                          Cancel();
-	                          ticksSinceLastPressed = 0;
-	                          }
-	                          } else {
-	 ++ticksSinceLastPressed;
-	                          if (ticksSinceLastPressed == TICKS_BETWEEN_PRESSES)
-	                          ticksSinceLastPressed = -1;
-	                          if (stage != -1) {
-	 ++ticksInStage;
-	                          if (stage == 0) {
-	                              if (!Arm::IsHeldOut())
-	                                      Arm::HoldOut();
-	                              else {
-	                                      stage = 1;
-	                                      ticksInStage = 0;
-	                                      // arm will stop automatically
-	                              }
-	                          }
-	                          if(stage == 1) {
-	                              if (IsConeInFrontOfUltrasonic())
-	                                      Lift::Up();
-	                              else {
-	                                      stage = 2;
-	                                      ticksInStage = 0;
-	                              }
-	                          }
-	                          print("stage 1 done\n");
-	                          stage = -1;
-	                          return;
-	                          if (stage == 2) {
-	                              if (Claw::IsFullyOut()) {
-	                                      // claw will stop automatically
-	                                      stage = 2;
-	                                      ticksInStage = 0;
-	                              } else
-	                                      Claw::Out();
-	                          }
-	                          if (stage == 3) {
-	                              if (!Arm::IsFullyDown()) {
-	                                      Arm::Down();
-	                              } else {
-	                                      stage = 4;
-	                                      ticksInStage = 0;
-	                              }
-	                          }
-	                          if(stage == 4) {
-	                              if(!Lift::IsResting()) {
-	                                      Lift::Down();
-	                              } else {
-	                                      stage = -1;
-	                                      return;
-	                              }
-	                          }
-	                          }
-	                          }*/
-
 }
 
 #endif
