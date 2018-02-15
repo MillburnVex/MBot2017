@@ -24,12 +24,14 @@ void Tick() {
 		Autodump::Update();
 		Drive::UpdateControls();
 		Drive::Update();
+
 		if(!Autodump::IsActive()) {
 			MobileGoal::UpdateControls();
 			Claw::UpdateControls();
 			Lift::UpdateControls();
 			Arm::UpdateControls();
 		}
+
 		MobileGoal::Update();
 		Claw::Update();
 		Lift::Update();

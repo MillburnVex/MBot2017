@@ -8,17 +8,12 @@
 #include "../include/Sensors.h"
 #include "../include/Quickmaths.h"
 
-const bool PRINT = true;
 const int ARM_SPEED = 100;
 
 const int ARM_HOLD_SPEED = 10;
 const int ARM_HOLD_VALUE = -500;
-const int ARM_CORRECTION_THRESHOLD = 30;
-const int ARM_TICKS_TO_CORRECT_FOR_MOMENTUM = 10;
-const int ARM_MOMENTUM_CORRECTION_SPEED = 30;
-//static int armMomentumTicks = -1;
 
-PID pid(0.25f, 0.05f, 0.02f, 1000, -1000);
+PID pid(0, 0, 0, 0, 0);
 int goal = 0;
 bool up = false;
 bool down = false;
@@ -31,14 +26,12 @@ void Arm::MakePID(){
 void Arm::Up() {
 	up = true;
 	down = false;
-	//armMomentumTicks = -1;
 	goal = Sensors::GetValue(Sensor::P_ARM);
 }
 
 void Arm::Down() {
 	down = true;
 	up = false;
-	//armMomentumTicks = -1;
 	goal = Sensors::GetValue(Sensor::P_ARM);
 }
 
@@ -46,14 +39,12 @@ void Arm::Hold() {
 	if(up || down) {
 		up = false;
 		down = false;
-		//armMomentumTicks = 0;
 	}
 }
 
 void Arm::HoldAt(int i) {
 	up = false;
 	down = false;
-	//armMomentumTicks = -1;
 	goal = i;
 }
 
@@ -74,8 +65,6 @@ void Arm::Update() {
 	} else {
 		int nval = pid.GetValue(Sensors::GetValue(Sensor::P_ARM), goal);
 		Motors::SetSpeed(MotorID::ARM, nval);
-		//printf("goal: %d, current: %d, P: %d, I:%d D: %d\n", goal,
-		//	Sensors::GetValue(Sensor::P_ARM), pVal, iVal, dVal);
 	}
 }
 

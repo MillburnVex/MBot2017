@@ -7,7 +7,7 @@ PID::PID(float nP, float nI, float nD, float nIMAX, float nIMIN) :
 }
 
 int PID::GetValue(int value, int goal){
-	int error = goal-value;
+	int error = goal - value;
 	int pVal = error * P;
 	sum += error;
 	if(sum > IMAX) sum = IMAX;
@@ -15,7 +15,7 @@ int PID::GetValue(int value, int goal){
 	int iVal = I * sum;
 	int dVal = D * (value-last);
 	last = value;
-	int newval = pVal+iVal-dVal;
+	int newval = pVal + iVal - dVal;
 
 	if(P == 3.0f && goal!=-1) printf("goal: %d, current: %d, P: %d, I:%d D: %d\n", goal,
 		                         value, pVal, iVal, dVal);

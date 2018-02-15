@@ -4,11 +4,11 @@
 class PID
 {
 
-	float P,I,D,IMAX,IMIN,sum,last;
+float P,I,D,IMAX,IMIN,sum,last;
 public:
-	PID(float, float, float, float, float);
+PID(float, float, float, float, float);
 
-	int GetValue(int value, int error);
-	
+int GetValue(int value, int error);
+
 };
 #endif

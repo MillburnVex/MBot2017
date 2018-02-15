@@ -11,7 +11,6 @@ const int RIGHT_ENCODER_BOTTOM = 6;
 const int LEFT_ENCODER_TOP = 3;
 const int LEFT_ENCODER_BOTTOM = 4;
 const int SONIC_CHANGE_THRESHOLD = 5;
-static int lastSonic = -1;
 
 void Sensors::Calibrate(Sensor id) {
 	analogCalibrate(id);

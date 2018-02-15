@@ -19,6 +19,7 @@ static int stage = -1; //2+2=4-1=3
 static int ticksInStage = 0;
 static int badTicks = 0;
 const int DISTANCE_TO_CONE_FROM_ULTRASONIC = 12; // TODO
+
 void Autodump::Start() {
 	stage = 0;
 	armStartingPosition = Sensors::GetValue(Sensor::P_ARM);
