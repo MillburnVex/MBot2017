@@ -8,7 +8,7 @@
 #include "../include/Sensors.h"
 #include "../include/Quickmaths.h"
 
-const int ARM_SPEED = 100;
+const int ARM_SPEED = 50;
 
 const int ARM_HOLD_SPEED = 10;
 const int ARM_HOLD_VALUE = -500;
@@ -64,6 +64,7 @@ void Arm::Update() {
 		Motors::SetSpeed(MotorID::ARM, -ARM_SPEED);
 	} else {
 		int nval = pid.GetValue(Sensors::GetValue(Sensor::P_ARM), goal);
+		printf("arm: %d\n, speed: %d", Sensors::GetValue(Sensor::P_ARM), nval);
 		Motors::SetSpeed(MotorID::ARM, nval);
 	}
 }

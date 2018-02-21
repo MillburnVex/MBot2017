@@ -99,10 +99,20 @@ void Lift::UpdateControls() {
 }
 
 void Lift::Update() {
-	int right = Sensors::GetValue(Sensor::E_LIFT_LEFT);
-	int left = Sensors::GetValue(Sensor::E_LIFT_RIGHT);
-	RightSide(pidRight.GetValue(right, goal));
-	LeftSide(pidLeft.GetValue(left, goal));
+	if(lifting) {
+		LeftSide(100);
+	} else if(dropping) {
+		LeftSide(-100);
+	} else {
+		LeftSide(0);
+	}
+	/*
+	   int right = Sensors::GetValue(Sensor::E_LIFT_LEFT);
+	   int left = Sensors::GetValue(Sensor::E_LIFT_RIGHT);
+	   printf("l: %d, r: %d\n", left, right);
+	   RightSide(pidRight.GetValue(right, goal));
+	   LeftSide(pidLeft.GetValue(left, goal));
+	 */
 }
 
 #endif
