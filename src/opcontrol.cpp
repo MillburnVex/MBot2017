@@ -19,6 +19,7 @@ static bool pressedDebugModeButton = false;
 static bool debugMode = false;
 
 void Tick() {
+	printf("sonice: %d\n", Sensors::GetValue(Sensor::ULTRASONIC));
 	if(!debugMode) {
 		Autodump::UpdateControls();
 		Autodump::Update();

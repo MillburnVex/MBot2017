@@ -50,16 +50,16 @@ void Autodump::UpdateControls() {
 }
 
 void Autodump::Update() {
-	printf("%d\n", stage);
+	
 	if(stage == 0) {
-		Arm::HoldAt(armStartingPosition + 400);
+		Arm::HoldAt(armStartingPosition + 200);
 		Claw::Hold();
 		Lift::Up();
-		if(Sensors::GetValue(Sensor::ULTRASONIC) > 3 && Sensors::GetValue(Sensor::ULTRASONIC) < 25) {
+		if(Sensors::GetValue(Sensor::ULTRASONIC) > 3 && Sensors::GetValue(Sensor::ULTRASONIC) < 45) {
 			ticksInStage++;
 		}
 
-		if(!(Sensors::GetValue(Sensor::ULTRASONIC) > 3 && Sensors::GetValue(Sensor::ULTRASONIC) < 25)) {
+		if(!(Sensors::GetValue(Sensor::ULTRASONIC) > 3 && Sensors::GetValue(Sensor::ULTRASONIC) < 45)) {
 			ticksInStage++;
 			badTicks++;
 		}

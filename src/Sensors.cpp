@@ -30,8 +30,8 @@ int Sensors::GetValue(Sensor id) {
 void Sensors::InitAll() {
 	Calibrate(Sensor::P_MOBILE_GOAL);
 	Calibrate(Sensor::P_ARM);
-	liftRight = encoderInit(RIGHT_ENCODER_TOP, RIGHT_ENCODER_BOTTOM, false);
-	liftLeft = encoderInit(LEFT_ENCODER_TOP, LEFT_ENCODER_BOTTOM, true);
+	liftRight = encoderInit(RIGHT_ENCODER_TOP, RIGHT_ENCODER_BOTTOM, true);
+	liftLeft = encoderInit(LEFT_ENCODER_TOP, LEFT_ENCODER_BOTTOM, false);
 	sonic = ultrasonicInit(SONIC_ECHO_PORT, SONIC_PING_PORT);
 }
 
